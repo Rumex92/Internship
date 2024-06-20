@@ -1,0 +1,36 @@
+{
+  "name": "online-learning-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.6.7",
+    "bootstrap": "^5.3.2",
+    "bootstrap-vue": "^2.23.1",
+    "owl.carousel": "^2.3.4",
+    "pinia": "^2.1.7",
+    "primeicons": "^7.0.0",
+    "primevue": "^3.52.0",
+    "swiper": "^11.0.6",
+    "vue": "^3.3.11",
+    "vue-carousel": "^0.18.0",
+    "vue-owl-carousel": "^2.0.3",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/vue": "^2.0.0",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  }
+}
