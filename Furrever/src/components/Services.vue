@@ -2,14 +2,14 @@
   <div>
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
       <div class="container text-center py-5">
-        <h1 class="display-4 text-white slideInDown mb-4">Services available for Cats & Kittens</h1>
+        <h1 class="display-4 text-white slideInDown mb-4">Services</h1>
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
-              <router-link class="text-white" to="/">Home</router-link>
+              <router-link class="text-white" style="text-decoration:none;"to="/">Home</router-link>
             </li>
             <li class="breadcrumb-item">
-              <router-link class="text-white" to="#">Pages</router-link>
+              <router-link class="text-white" style="text-decoration:none;"to="#">Pages</router-link>
             </li>
             <li class="breadcrumb-item text-primary active" aria-current="page">
               Cat Services
@@ -61,13 +61,17 @@
       </div>
     </div>
 
-    <div class="container-xxl py-6">
+    <div class="container-xl py-6">
       <div class="container">
         <div class="row gy-4 justify-content-center" data-aos="zoom-in">
           <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
             <div class="card bg-custom px-4 custom-card-spacing">
               <h4 class="py-2">{{ service.service_name }}</h4>
-              <p class="py-3">{{ service.description }}</p>
+              <ul class="py-3 list-unstyled">
+                <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3">
+                  <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
+                </li>
+              </ul>
               <h4 class="py-3">${{ service.price }}</h4>
             </div>
           </div>
@@ -79,9 +83,17 @@
 
 <script>
 import axios from 'axios';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faPaw);
 
 export default {
   props: ['categoryId'],
+  components: {
+    FontAwesomeIcon,
+  },
   data() {
     return {
       services: [],
@@ -104,15 +116,23 @@ export default {
         }
       }
     },
+    splitDescription(description) {
+      // Split description into sentences based on periods
+      return description.split('. ').map(sentence => sentence.trim()).filter(sentence => sentence.length > 0);
+    }
   },
 };
 </script>
 
-
 <style scoped>
+* {
+
+  font-family: 'Quicksand', sans-serif;
+}
+
 .custom-card {
-    margin: 0 15px; /* Add horizontal margin for spacing */
-    width: calc(33.333% - 100px); /* Adjust width to fit three cards with margin */
+   margin: 0 15px; /* Add horizontal margin for spacing */
+  width: calc(50% - 30px);  /* Adjust width to fit two cards with margin */
 }
 
 .bg-custom {

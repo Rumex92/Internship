@@ -5,10 +5,10 @@
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
-              <a class="text-white" href="#">Home</a>
+              <a class="text-white"style="text-decoration:none;" href="#">Home</a>
             </li>
             <li class="breadcrumb-item">
-              <a class="text-white" href="#">Pages</a>
+              <a class="text-white"style="text-decoration:none;" href="#">Pages</a>
             </li>
             <li class="breadcrumb-item text-primary active" aria-current="page">
               About
@@ -68,17 +68,74 @@
 
 
 <div class="about-container">
+<div class="container-fluid featurs py-3">
+    <div class="container py-5">
+        <div class="row g-5 justify-content-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
+                       <font-awesome-icon :icon="['fas', 'bone']" class="fa-3x text-white"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#A1AF95;">No transportation</h5>
+                        <p class="mb-0" style="color:#A1AF95;">save time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
+                       <font-awesome-icon :icon="['fas', 'dog']" class="fa-3x text-white"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#A1AF95;">One_one_one</h5>
+                        <p class="mb-0" style="color:#A1AF95;">You can study alone</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
+                        <font-awesome-icon :icon="['fas', 'cat']" class="fa-3x text-white"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#A1AF95;">24/7 Support</h5>
+                        <p class="mb-0" style="color:#A1AF95;">Support every time fast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
 
 </template>
 
 
+
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+export default {
+    components: {
+        FontAwesomeIcon,
+    },
+    
+};
+library.add(fas); 
 
 </script>
 
 <style scoped>
+* {
+
+  font-family: 'Quicksand', sans-serif;
+}
 .page-header {
     background: url('../image/header.jpg') no-repeat center center;
     background-size: cover;
@@ -156,14 +213,45 @@ body, .page-header, h1, h2, h3, h6, p, a, div {
     margin-top: 40px; 
 }
 .about-container{
-    padding-top: 4rem; 
-    padding-bottom: 4rem; 
-    min-height: 400px; 
+    
+    min-height: 300px; 
     margin:40px;
     background:#f5edd6;
 }
 .offers{
     text-align:center;
     color:#E48951;
+}
+.featurs .featurs-item .featurs-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    color:white;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+    background-color:#E48951;
+    
+}
+
+.rounded {
+    border-radius: 10px !important;
 }
 </style>

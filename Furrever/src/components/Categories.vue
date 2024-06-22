@@ -6,10 +6,10 @@
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
-              <router-link class="text-white" to="/">Home</router-link>
+              <router-link class="text-white" style="text-decoration:none;"to="/">Home</router-link>
             </li>
             <li class="breadcrumb-item">
-              <router-link class="text-white" to="#">Pages</router-link>
+              <router-link class="text-white" style="text-decoration:none;"to="#">Pages</router-link>
             </li>
             <li class="breadcrumb-item text-primary active" aria-current="page">
               Services
@@ -73,10 +73,9 @@ export default {
 
 
 <style scoped>
-:root {
-    --quicksand-font: 'Quicksand', sans-serif;
-    --montserrat-font: 'Montserrat', sans-serif;
-    --bs-gradient: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
+* {
+
+  font-family: 'Quicksand', sans-serif;
 }
 
 h1,

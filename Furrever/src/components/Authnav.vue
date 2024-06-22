@@ -1,74 +1,32 @@
-
 <template>
-  <header>
-    <div class="header fixed-top bg-white shadow-sm" style="font-size: 14px; letter-spacing: 1.5px;">
-      <nav class="navbar navbar-expand-lg navbar-light bg-custom-blue position-relative">
-        <router-link class="navbar-brand" :to="{ name: 'Home' }"
-          style="transform: skew(40deg); font-size: 20px; color: white; padding-left: 40px;">Creative</router-link>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav" style="display: flex; flex-grow: 1;">
-            <!-- Add your navigation links here if needed -->
-          </ul>
+  <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+    <router-link to="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <img src="../image/Furr.png" style="height: 50px; width: 70px; margin-left:80px;">
+    </router-link>
 
-          <div style="transform: skew(40deg); color: white; padding-right: 20px;">
-            creative@gmail.com
-          </div>
-        </div>
-      </nav>
+    <div class="navbar-nav ms-auto" style="margin-right:80px;">
+      <router-link class="nav-item nav-link fs-5 mx-3" :to="{ name: 'Register' }">Register New Account</router-link>
     </div>
-  </header>
+  </nav>
 </template>
+
 <script setup>
 </script>
+
 <style scoped>
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 0px;
-}
-
-.navbar {
-  overflow: hidden;
-  border-radius: 55px;
-  position: relative;
-  transform: skew(-40deg);
-  width: 1200px;
-}
-
-.navbar::before,
-.navbar::after {
-  content: '';
-  position: absolute;
+.custom-navbar {
+  font-family: 'Quicksand', sans-serif;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: sticky;
   top: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #3368C6ff;
-  z-index: -1;
-  transform: skew(-40deg);
+  z-index: 1000;
+  background: #a1af95;
+  height: 70px;
 }
 
-.navbar::before {
-  left: -15px;
-  border-bottom-right-radius: 15px;
+.nav-item .nav-link {
+  font-family: 'Quicksand', sans-serif;
 }
 
-.navbar::after {
-  right: -15px;
-  border-bottom-left-radius: 15px;
-}
-
-.navbar-brand,
-.nav-link {
-  transform: skew(40deg);
-  display: block;
-}
-
-.navbar-brand {
-  z-index: 1;
-}
-
-.bg-custom-blue {
-  background-color: #3368C6ff;
-}
 </style>

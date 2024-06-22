@@ -1,25 +1,19 @@
 <template>
   <div>
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" @click="closeNav">&times;</a>
-      <a href="#">Services</a>
-      <router-link to="/admin/categories">Service Category</router-link>
-        <router-link to="/admin/bookings">Bookings</router-link>
-    
-          <router-link class="nav-item nav-link fs-5 mx-3" :to="{ name: 'AdminAccount' }">Profile</router-link>
-        
-
-
-
-      <a href="javascript:void(0)" @click="logout">Logout</a>
+      <a class="closebtn" @click="closeNav">&times;</a>
+      <router-link to="/admin/home">Services</router-link>
+      <router-link to="/admin/categories">Service Categories</router-link>
+      <router-link to="/admin/bookings">Bookings</router-link>
+      <router-link  :to="{ name: 'AdminAccount' }">Change Password</router-link>
+      <a class="logoutbtn" @click="logout">Logout</a>
     </div>
 
     <h2>Admin Dashboard - Services</h2>
-
-    <span style="font-size:30px;cursor:pointer" @click="openNav">&#9776; open</span>
+ <span class="nav" @click="openNav">&#9776; open</span>
 
     <div id="main">
-      <button @click="addService" class="new-button">New</button>
+      <button @click="addService" style="margin-bottom: 10px;" class="btn btn-success">Add New Service</button>
 
       <table class="crud-table">
         <thead>
@@ -40,18 +34,19 @@
             <td>{{ getCategoryName(service.category_id) }}</td>
             <td>{{ service.price }}</td>
             <td>
-              <button @click="editService(service.id)">Edit</button>
-              <button @click="deleteService(service.id)">Delete</button>
+              <button class="btn btn-warning" style="margin-right: 10px;"  @click="editService(service.id)">Edit</button>
+              <button class="btn btn-danger" @click="deleteService(service.id)">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
 
-      <div class="pagination">
-        <button @click="prevPage" :disabled="currentPage === 1">Previous</button>
-        <span>Page {{ currentPage }} of {{ totalPages }}</span>
-        <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
-      </div>
+    <div class="pagination">
+     <button class="pagination-button" @click="prevPage" :disabled="currentPage === 1">Previous</button>
+     <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="pagination-button" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+    </div>
+
     </div>
 
     <div v-if="isModalOpen" class="modal">
@@ -103,6 +98,7 @@ export default {
       }
     };
   },
+
   computed: {
     services() {
       return useServiceStore().services;
@@ -123,10 +119,12 @@ export default {
       return useCategoryStore().categories; // Retrieve categories from Vuex store
     }
   },
+
   created() {
     useServiceStore().fetchServices();
     useCategoryStore().fetchCategories(); // Fetch categories when the component is created
   },
+  
   methods: {
     getCategoryName(category_id) {
       const category = this.categories.find(cat => cat.id === category_id);
@@ -138,15 +136,23 @@ export default {
     closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     },
-    async logout() {
-      const adminAuthStore = useAdminAuthStore();
-      try {
-        await adminAuthStore.logout();
-        this.$router.push('/admin/auth/login'); // Redirect to login page
-      } catch (error) {
-        console.error('Logout failed:', error.message || 'Unknown error');
-      }
-    },
+   async logout() {
+  const adminAuthStore = useAdminAuthStore();
+  
+  // Display a confirmation dialog
+  const confirmation = window.confirm("Are you sure you want to log out?");
+  
+  if (confirmation) {
+    try {
+      await adminAuthStore.logout();
+      this.$router.push('/admin/auth/login'); 
+    } catch (error) {
+      console.error('Logout failed:', error.message || 'Unknown error');
+    }
+  } else {
+    console.log('Logout canceled by the user');
+  }
+},
     addService() {
       this.isEdit = false;
       this.form = {
@@ -167,7 +173,7 @@ export default {
     async deleteService(id) {
       try {
         await useServiceStore().deleteService(id);
-        // Removed alert('Service deleted successfully');
+       
       } catch (error) {
         console.error('Error deleting service:', error);
       }
@@ -176,7 +182,7 @@ export default {
       try {
         await useServiceStore().createService(this.form);
         this.closeModal();
-        // Removed alert('Service created successfully');
+        
       } catch (error) {
         console.error('Error creating service:', error);
       }
@@ -185,7 +191,7 @@ export default {
       try {
         await useServiceStore().updateService(this.form);
         this.closeModal();
-        // Removed alert('Service updated successfully');
+        
       } catch (error) {
         console.error('Error updating service:', error);
       }
@@ -207,7 +213,12 @@ export default {
 
 
 <style scoped>
-/* Add your styles here */
+.nav
+{
+  font-size:30px;
+  cursor:pointer;
+  margin:20px;
+}
 .sidenav {
   height: 100%;
   width: 0;
@@ -292,18 +303,42 @@ export default {
   padding-top: 60px;
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  .modal-content label {
+    display: block; /* Make labels display as block to stack them */
+    margin-bottom: 8px;
+  }
+
+  .modal-content input,
+  .modal-content textarea,
+  .modal-content select {
+    width: calc(100% - 20px); /* Adjust width and include padding */
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+
+  .modal-content button {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
 
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 48px;
   font-weight: bold;
 }
 
@@ -312,4 +347,37 @@ export default {
   text-decoration: none;
   cursor: pointer;
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.pagination-button {
+  background-color: #6c757d; /* Gray background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px; /* Adjust the radius as needed for rounder corners */
+  transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-button:not(:disabled):hover {
+  background-color: #5a6268; /* Slightly darker gray for hover state */
+}
+
+.pagination-info {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+
 </style>

@@ -112,7 +112,7 @@ class AdminAuthController extends Controller
     public function changePassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
+           
             'current_password' => 'required',
             'new_password' => 'required|min:8',
         ]);

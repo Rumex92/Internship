@@ -4,6 +4,7 @@
     <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path fill="#ffffff" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,298.7C384,309,480,299,576,266.7C672,235,768,181,864,170.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
     </svg>
+    
    <div class="p-lg-5 pe-lg-0">
         <div class="section-title text-start">
             <h2 class="display-3 mb-4"style="padding-top:60px;">Welcome to Furrever!</h2>
@@ -14,116 +15,34 @@
                 <div class="row g-4 mb-4 pb-2">
                  </div>
             <a href="" class="btn btn-primary py-3 px-5" style="border-radius: 10px;">Explore More</a>
-    </div>
+        </div>
   </div>
 </div>
 
-  <div class="container-about  overflow-hidden my-5 px-lg-0">
-        <div class="container about px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="../image/puppy.jpg" style="object-fit: cover; border-radius: 15px;" alt="">
+    <div class="container" style="height:650px; padding-top:100px;">
+         <div class="row g-5">
+            <div class="row img-twice position-relative h-100" style="margin-left:55px;">
+                  <!-- Color Layer Between Images -->
+             <div class="color-layer-between">
+          <h2 class="title" style="padding-top:40px; margin:20px;">Your Title Here</h2>
+          <p class="description" style=" margin:20px;">Lorem diam sit erat dolor elitr et, diam lorem justo labore amet clita labore stet eos magna sit. Elitr dolor eirmod duo tempor lorem, elitr clita ipsum sea. Nonumy rebum et takimata ea takimata amet gubergren, erat rebum magna lorem stet eos. Diam amet et kasd eos duo dolore no.</p>
+        </div>
+               
+                <div class="col-6">
+                 <img class="img-fluid rounded zoom-on-hover" src="../image/Doggos.jpg" alt="">
+                </div>
+           </div>
+        </div>
+    </div>
+   
 
-                    </div>
-                </div>
-                <div class="col-lg-6 about-text " ref="aboutSection">
-                    <div class="p-lg-5 pe-lg-0">
-                        <div class="section-title text-start">
-                            <h1 class="display-5 mb-4">About Us</h1>
-                        </div>
-                        <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
-                        <div class="row g-4 mb-4 pb-2">
-                        </div>
-                        <a href="" class="btn btn-primary py-3 px-5" style="border-radius: 10px;">Explore More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-   <div class="container-xxl py-5">
-        <div class="container">
-            <div class="section-title text-center">
-                <h1 class="display-5 mb-5">Our Services</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid zoom-in" src="../image/ginger.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">General Carpentry</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                            <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid zoom-in" src="../image/ginger.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Furniture Manufacturing</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                            <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid zoom-in" src="../image/ginger.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Furniture Manufacturing</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                            <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid zoom-in" src="../image/ginger.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Furniture Manufacturing</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                            <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid zoom-in" src="../image/ginger.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Furniture Manufacturing</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                            <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6 col-lg-4">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid zoom-in" src="../image/ginger.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Furniture Manufacturing</h4>
-                            <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                            <a class="fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
+<div class="about-container" >
+ <div class="gradient-overlay"></div>
+  <div class="content">
+    <h1>About Us</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>
   <div class="container-fluid overflow-hidden my-5 px-lg-0">
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
@@ -189,6 +108,48 @@
         </div>
     </div>
 </div>
+<div class="container-fluid featurs py-3">
+    <div class="container py-5">
+        <div class="row g-4 justify-content-center"> <!-- Added justify-content-center to center columns -->
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <font-awesome-icon :icon="['fas', 'car-side']" class="fa-3x text-white"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#747d88;">No transportation</h5>
+                        <p class="mb-0" style="color:#747d88;">save time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <font-awesome-icon :icon="['fas', 'exchange-alt']" class="fa-3x text-white"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#747d88;">One_one_one</h5>
+                        <p class="mb-0" style="color:#747d88;">You can study alone</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                        <font-awesome-icon :icon="['fas', 'phone-alt']" class="fa-3x text-white"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#747d88;">24/7 Support</h5>
+                        <p class="mb-0" style="color:#747d88;">Support every time fast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </template>
 
@@ -228,6 +189,78 @@ library.add(fas);
         scroll-behavior: smooth
     }
 }
+.featurs .featurs-item .featurs-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.rounded {
+    border-radius: 10px !important;
+}
+.color-layer-between {
+    position: absolute;
+    top: 52%;
+    
+    left: 600px;
+    width: 45%;
+    height: 370px; 
+    background-color:#A1AF95; 
+    transform: translateY(-50%);
+    z-index: 1; 
+    border-radius:10px;
+}
+
+
+
+.img-twice .col-6 img {
+    position: relative;
+    z-index: -1; 
+}
+.about-container {
+  padding-top: 4rem; 
+  padding-bottom: 4rem; 
+  min-height: 400px; 
+  background: 
+    linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+    url('../image/landscape2.jpg') center/cover no-repeat; 
+  position: relative; 
+  color: white; 
+}
+
+.about-container .content {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  text-align: center; 
+}
+
+.about-container h1, .about-container p {
+  margin: 0;
+  font-size: 2rem; /* Adjust font size as needed */
+}
+
 
 .wave-header {
   min-height: 80%;

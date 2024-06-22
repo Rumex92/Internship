@@ -86,5 +86,5 @@
 Route::group(['prefix' => 'admin/account', 'middleware' => 'auth:admin-api'], function () {
     Route::put('password', [AdminAuthController::class, 'changePassword']);
     Route::delete('/', [AdminAuthController::class, 'deleteAccount']);
-    Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin.profile');
+    Route::get('profile', [AdminAuthController::class, 'profile'])->name('admin.profile'); // Removed the leading slash here
 });

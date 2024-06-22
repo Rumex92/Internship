@@ -21,6 +21,7 @@ import AdminAuth from '@/layout/AdminAuth.vue';
 import AdminLogin from '@/components/AdminLogin.vue';
 import AdminRegister from '@/components/AdminRegister.vue';
 import AdminHome from '@/components/AdminHome.vue';
+import AdminNav from '@/components/AdminNav.vue';
 import AdminCategories from '@/components/AdminCategories.vue';
 import AdminBookings from '@/components/AdminBookings.vue';
 import AdminAccount from '@/components/AdminAccount.vue';
@@ -151,6 +152,12 @@ const routes = [
         meta: {
             requiresAdminAuth: true
         },
+    },
+    {
+        path: '/admin/adminnav',
+        name: 'AdminNav',
+        component: AdminNav,
+       
     },
     {
         path: '/admin/categories',
