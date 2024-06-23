@@ -28,15 +28,22 @@
         <div class="row gy-4 py-2 d-flex justify-content-center" data-aos="zoom-in">
           <div v-for="category in categories" :key="category.id" class="col-lg-4">
             <div class="card">
-              <i class="fas fa-home fa-2x"></i>
+         <router-link :to="{ name: 'Services', params: { categoryId: category.id } }" class="card-link">
+          <div class="card text-center">
               <h4 class="py-2">{{ category.category_name }}</h4>
-              <router-link :to="{ name: 'Services', params: { categoryId: category.id } }" class="btn btn-primary">View Services</router-link>
+          </div>
+         </router-link>
+
             </div>
           </div>
         </div> <!-- end of row -->
       </div> <!-- end of container -->
     </section>
   </div>
+
+      <div class="review">
+          <Reviews></Reviews>
+      </div>
 </template>
 
 <script>
@@ -44,10 +51,12 @@ import axios from 'axios';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import Reviews from './Reviews.vue';
 
 export default {
   components: {
     FontAwesomeIcon,
+     Reviews,
   },
   data() {
     return {
@@ -149,4 +158,29 @@ h4 {
     background-color: rgba(0, 0, 0, 0.3); 
     z-index: -1;
 }
+.review{
+      width: 80%;
+  min-height: 300px;
+  margin: 40px auto; /* Centering the card horizontally */
+  background: #f5edd6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card h4.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   .card-link .card {
+    cursor: pointer;
+  }
 </style>

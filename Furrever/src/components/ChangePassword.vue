@@ -1,13 +1,12 @@
 <template>
-  <div class="card">
-    <div class="row">
-      <div class="col-6 offset-3">
-        <h4>Change Password</h4>
+  <div class="container my-5">
+    <div class="card p-4 shadow-lg">
+      <div class="card-body">
+        <router-link :to="{ name: 'Profile' }" class="btn btn-outline-secondary mb-3">
+          <i class="fas fa-arrow-left"></i> Back
+        </router-link>
+        <h4 class="card-title text-center mb-4">Change Password</h4>
         <form @submit.prevent="changePassword">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" v-model="email" required>
-          </div>
           <div class="form-group">
             <label for="oldPassword">Old Password</label>
             <input type="password" class="form-control" id="oldPassword" v-model="oldPassword" required>
@@ -16,7 +15,7 @@
             <label for="newPassword">New Password</label>
             <input type="password" class="form-control" id="newPassword" v-model="newPassword" required>
           </div>
-          <button type="submit" class="btn btn-primary">Change Password</button>
+          <button type="submit" class="btn btn-primary btn-block mt-4">Change Password</button>
         </form>
         <div v-if="changePasswordSuccess" class="alert alert-success mt-3" role="alert">
           Password changed successfully!
@@ -28,14 +27,12 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from 'axios';
 
 export default {
   data() {
     return {
-      email: '',
       oldPassword: '',
       newPassword: '',
       changePasswordSuccess: false,
@@ -46,7 +43,6 @@ export default {
     async changePassword() {
       try {
         const response = await axios.post('http://localhost:8000/api/change-password', {
-          email: this.email,
           old_password: this.oldPassword,
           password: this.newPassword
         });
@@ -54,7 +50,6 @@ export default {
         this.changePasswordSuccess = true;
         this.changePasswordError = '';
         // Optionally, reset form fields here
-        this.email = '';
         this.oldPassword = '';
         this.newPassword = '';
       } catch (error) {
@@ -67,6 +62,30 @@ export default {
 };
 </script>
 
+
+
 <style scoped>
-/* Add any custom styles as needed */
+
+  .card {
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+  }
+  .card-title {
+    font-weight: bold;
+    color: #007bff;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-outline-secondary {
+    font-size: 0.9rem;
+  }
+  .form-group label {
+    font-weight: bold;
+  }
+  .alert {
+    text-align: center;
+  }
 </style>

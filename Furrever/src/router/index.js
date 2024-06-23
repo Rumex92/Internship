@@ -9,7 +9,7 @@ import Contact from '@/components/Contact.vue';
 import Services from '@/components/Services.vue';
 import Categories from '@/components/Categories.vue';
 import BookingForm from '@/components/BookingForm.vue';
-import ProfileEdit from '@/components/ProfileEdit.vue';
+import ChangePassword from '@/components/ChangePassword.vue';
 import Profile from '@/components/Profile.vue';
 
 import Auth from '@/layout/Auth.vue';
@@ -78,9 +78,9 @@ const routes = [
                 }
             },
             {
-                path: '/profileedit',
-                name: 'ProfileEdit',
-                component: ProfileEdit,
+                path: '/changepassword',
+                name: 'ChangePassword',
+                component: ChangePassword,
                 meta: {
                     requiresAuth: true // Example: Profile route requires authentication
                 }
@@ -116,14 +116,7 @@ const routes = [
             }
         ]
     },
-    {
-        path: '/profileEdit',
-        name: 'ProfileEdit',
-        component: ProfileEdit,
-        meta: {
-            requiresAuth: true
-        },
-    },
+   
     {
         path: '/admin/auth',
         name: 'AdminAuth',

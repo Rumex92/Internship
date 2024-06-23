@@ -62,55 +62,7 @@
         </div>
     </div>
 </div>
-<div class="offers">
-<h1>The Purr-fect Care Plan!</h1>
-</div>
 
-
-<div class="about-container">
-<div class="container-fluid featurs py-3">
-    <div class="container py-5">
-        <div class="row g-5 justify-content-center">
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
-                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                       <font-awesome-icon :icon="['fas', 'bone']" class="fa-3x text-white"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#A1AF95;">No transportation</h5>
-                        <p class="mb-0" style="color:#A1AF95;">save time</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
-                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                       <font-awesome-icon :icon="['fas', 'dog']" class="fa-3x text-white"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#A1AF95;">One_one_one</h5>
-                        <p class="mb-0" style="color:#A1AF95;">You can study alone</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
-                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                        <font-awesome-icon :icon="['fas', 'cat']" class="fa-3x text-white"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#A1AF95;">24/7 Support</h5>
-                        <p class="mb-0" style="color:#A1AF95;">Support every time fast</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</div>
 
 </template>
 
@@ -213,10 +165,8 @@ body, .page-header, h1, h2, h3, h6, p, a, div {
     margin-top: 40px; 
 }
 .about-container{
-    
     min-height: 300px; 
-    margin:40px;
-    background:#f5edd6;
+    background:#027a76;
 }
 .offers{
     text-align:center;
@@ -226,7 +176,8 @@ body, .page-header, h1, h2, h3, h6, p, a, div {
     position: relative;
     width: 120px;
     height: 120px;
-    color:white;
+    color: #E48951;
+;
 }
 
 .btn-square,
@@ -247,7 +198,7 @@ body, .page-header, h1, h2, h3, h6, p, a, div {
 
 .rounded-circle {
     border-radius: 50% !important;
-    background-color:#E48951;
+    background-color:#fff;
     
 }
 

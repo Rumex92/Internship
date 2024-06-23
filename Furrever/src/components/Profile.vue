@@ -9,7 +9,7 @@
         <span class="email">{{ user.email }}</span>
         
         <div class="d-flex mt-2">
-          <button class="btn btn-dark" @click="editProfile">Edit Profile</button>
+          <button class="btn btn-dark" @click="editProfile">Change Password</button>
         </div>
         <div class="d-flex mt-2">
           <button class="btn btn-dark" @click="logout">Log Out</button>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { useAuthStore } from '@/store'; // Adjust the path to your auth store
+import { useAuthStore } from '@/store'; 
 import axios from 'axios';
 
 export default {
@@ -52,7 +52,7 @@ export default {
       }
     },
     editProfile() {
-    this.$router.push({ name: 'ProfileEdit' });
+    this.$router.push({ name: 'ChangePassword' });
       console.log('Navigate to edit profile page or modal');
     },
    logout() {

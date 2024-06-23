@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid p-0 pb-5">
+<div class="container-fluid p-0 pb-4" >
   <div class="wave-header">
     <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path fill="#ffffff" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,298.7C384,309,480,299,576,266.7C672,235,768,181,864,170.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -19,8 +19,56 @@
   </div>
 </div>
 
+<div class="offers">
+<h1>The Purr-fect Care Plan!</h1>
+</div>
+
+
+<div class="about-container">
+<div class="container-fluid featurs py-3">
+    <div class="container py-5">
+        <div class="row g-5 justify-content-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded  p-4">
+                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
+                       <font-awesome-icon :icon="['fas', 'bone']" class="fa-3x icon"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#fff;">No transportation</h5>
+                        <p class="mb-0" style="color:#fff;">save time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded  p-4">
+                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
+                       <font-awesome-icon :icon="['fas', 'dog']" class="fa-3x icon"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#fff;">One_one_one</h5>
+                        <p class="mb-0" style="color:#fff;">You can study alone</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded  p-4">
+                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
+                        <font-awesome-icon :icon="['fas', 'cat']" class="fa-3x icon"></font-awesome-icon>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5 style="color:#fff;">24/7 Support</h5>
+                        <p class="mb-0" style="color:#fff;">Support every time fast</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
     <div class="container" style="height:650px; padding-top:100px;">
-         <div class="row g-5">
+         <div class="row g-3">
             <div class="row img-twice position-relative h-100" style="margin-left:55px;">
                   <!-- Color Layer Between Images -->
              <div class="color-layer-between">
@@ -34,15 +82,12 @@
            </div>
         </div>
     </div>
-   
 
-<div class="about-container" >
- <div class="gradient-overlay"></div>
-  <div class="content">
-    <h1>About Us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
+<div class="reasons">
+<h1>The Purr-fect Care Plan!</h1>
 </div>
+
+
   <div class="container-fluid overflow-hidden my-5 px-lg-0">
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
@@ -103,47 +148,6 @@
             <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
                 <div class="position-relative h-100">
                     <img class="position-absolute img-fluid w-100 h-100"  src="../image/puppy.jpg" style="object-fit: cover; border-radius: 15px;" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid featurs py-3">
-    <div class="container py-5">
-        <div class="row g-4 justify-content-center"> <!-- Added justify-content-center to center columns -->
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
-                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                        <font-awesome-icon :icon="['fas', 'car-side']" class="fa-3x text-white"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#747d88;">No transportation</h5>
-                        <p class="mb-0" style="color:#747d88;">save time</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
-                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                        <font-awesome-icon :icon="['fas', 'exchange-alt']" class="fa-3x text-white"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#747d88;">One_one_one</h5>
-                        <p class="mb-0" style="color:#747d88;">You can study alone</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded bg-light p-4">
-                    <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-                        <font-awesome-icon :icon="['fas', 'phone-alt']" class="fa-3x text-white"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#747d88;">24/7 Support</h5>
-                        <p class="mb-0" style="color:#747d88;">Support every time fast</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -231,47 +235,27 @@ library.add(fas);
     border-radius:10px;
 }
 
-
-
 .img-twice .col-6 img {
     position: relative;
     z-index: -1; 
 }
-.about-container {
-  padding-top: 4rem; 
-  padding-bottom: 4rem; 
-  min-height: 400px; 
-  background: 
-    linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-    url('../image/landscape2.jpg') center/cover no-repeat; 
-  position: relative; 
-  color: white; 
+.about-container{
+    min-height: 300px; 
+    background:#A1AF95;
 }
-
-.about-container .content {
-  position: absolute;
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  text-align: center; 
+.reasons{
+     min-height: 300px; 
+    background:#d8ac73;
 }
-
-.about-container h1, .about-container p {
-  margin: 0;
-  font-size: 2rem; /* Adjust font size as needed */
-}
-
-
 .wave-header {
   min-height: 80%;
   width: 100%;
-  background-image: url('../image/catbanner.png');
+  background-image: url('../image/twodogs.jpg');
   background-size: cover;
   position: relative;
   display: flex;
-
-  
   color: white; 
+
 }
 
 .wave-header::before {
@@ -281,7 +265,6 @@ library.add(fas);
   left: 0;
   width: 100%;
   height: 100%;
- 
   z-index: 1;
 }
 
@@ -555,7 +538,44 @@ a:not([href]):not([class]),a:not([href]):not([class]):hover {
 .text-decoration-line-through {
     text-decoration: line-through !important
 }
+.offers{
+    text-align:center;
+    color:#E48951;
+    margin-bottom:20px;
+}
+.featurs .featurs-item .featurs-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    color: #E48951;
+;
+}
 
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+    background-color:#fff;
+    
+}
+
+.rounded {
+    border-radius: 10px !important;
+}
 
 
 

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-10">
         <div class="comment-box ml-2">
-          <h4>Add a comment</h4>
+          <h4>Submit a review</h4>
           <div class="rating">
             <input type="radio" name="rating" value="5" id="5" v-model="reviewData.rating"><label for="5">☆</label>
             <input type="radio" name="rating" value="4" id="4" v-model="reviewData.rating"><label for="4">☆</label>
@@ -17,8 +17,8 @@
           <div class="comment-btns mt-2">
             <div class="row">
               <div class="col-6">
-                <button class="btn btn-secondary btn-sm" @click="cancelComment" style="margin-right: 5px;">Clear</button>
-                <button class="btn btn-success send btn-sm" @click="sendComment" style="margin-left: 5px;">Send <i class="fa fa-long-arrow-right ml-1"></i></button>
+                <button class="btn cancel btn-sm" @click="cancelComment" style="margin-right: 5px;">Clear</button>
+                <button class="btn  send btn-sm" @click="sendComment" style="margin-left: 5px; ">Send </button>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
     </div> 
 
     <div class="reviews-section mt-4">
-      <h4>All Reviews</h4>
+      <h4>What our clients say</h4>
       <div v-for="review in paginatedReviews" :key="review.id" class="review">
         <p><strong>{{ review.user.name }}</strong> <span class="star-rating" v-html="getStars(review.rating)"></span></p>
         <p>{{ review.review }}</p>
@@ -221,27 +221,26 @@ body {
 }
 
 .send {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #fff;
+  border-color: #A1AF95;
+  color: #A1AF95; 
 }
 
 .send:hover {
-  color: #fff;
-  background-color: #0056b3;
-  border-color: #0056b3;
+  background-color: #A1AF95; 
+  border-color: #A1AF95;
+  color: #fff; 
 }
-
 .cancel {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+ background-color: #A1AF95;
+  border-color: #A1AF95;
+  color: #fff; 
 }
 
 .cancel:hover {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #5a6268;
+ background-color: #8B9E79; 
+  border-color: #8B9E79;
+  color: #fff; 
 }
 
 
