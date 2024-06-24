@@ -60,7 +60,7 @@
               <span class="txt1">
                 Already have an account?
               </span>
-              <router-link :to="{ name: 'Login' }" class="txt2">
+              <router-link :to="{ name: 'Login' }" class="txt2" style="text-decoration:none;">
                 Log in
               </router-link>
             </div>

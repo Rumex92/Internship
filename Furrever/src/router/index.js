@@ -11,6 +11,8 @@ import Categories from '@/components/Categories.vue';
 import BookingForm from '@/components/BookingForm.vue';
 import ChangePassword from '@/components/ChangePassword.vue';
 import Profile from '@/components/Profile.vue';
+import ProfileEdit from '@/components/ProfileEdit.vue';
+import UserBooking from '@/components/UserBooking.vue';
 
 import Auth from '@/layout/Auth.vue';
 import Register from '@/components/Register.vue';
@@ -25,6 +27,9 @@ import AdminNav from '@/components/AdminNav.vue';
 import AdminCategories from '@/components/AdminCategories.vue';
 import AdminBookings from '@/components/AdminBookings.vue';
 import AdminAccount from '@/components/AdminAccount.vue';
+import AdminList from '@/components/AdminList.vue';
+import UserList from '@/components/UserList.vue';
+
 
 import Reviews from '@/components/Reviews.vue'; // Import Reviews component
 
@@ -75,6 +80,22 @@ const routes = [
                 component: Profile,
                 meta: {
                     requiresAuth: true // Example: Profile route requires authentication
+                }
+            },
+            {
+                path: '/profile/edit',
+                name: 'ProfileEdit', // New route for ProfileEdit
+                component: ProfileEdit,
+                meta: {
+                    requiresAuth: true // Example: Profile edit route requires authentication
+                }
+            },
+            {
+                path: '/profile/booking',
+                name: 'UserBooking', // New route for ProfileEdit
+                component: UserBooking,
+                meta: {
+                    requiresAuth: true // Example: Profile edit route requires authentication
                 }
             },
             {
@@ -172,6 +193,22 @@ const routes = [
         path: '/admin/account',
         name: 'AdminAccount',
         component: AdminAccount,
+        meta: {
+            requiresAdminAuth: true
+        },
+    },
+    {
+        path: '/admin/list',
+        name: 'AdminList',
+        component: AdminList,
+        meta: {
+            requiresAdminAuth: true
+        },
+    },
+    {
+        path: '/admin/userlist',
+        name: 'UserList',
+        component: UserList,
         meta: {
             requiresAdminAuth: true
         },

@@ -168,4 +168,20 @@ class AdminAuthController extends Controller
 
         return response()->json(['message' => 'Admin account deleted successfully'], 200);
     }
+    // Other methods omitted for brevity...
+
+    /**
+     * Get list of admins.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function admins()
+    {
+        // Fetch all admins except the authenticated admin
+        $admins = Admin::where('id', '<>', Auth::guard('admin-api')->id())->get(['id', 'name', 'email']);
+
+        return response()->json(['admins' => $admins]);
+    }
+    
+    
 }

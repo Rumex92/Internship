@@ -3,16 +3,15 @@
     <div class="card p-4">
       <div class="image d-flex flex-column justify-content-center align-items-center">
         <button class="btn btn-secondary">
-          <img src="../image/img1.jpg" height="100" width="100" style="border-radius: 50%;" />
+          <img v-if="user.profile_picture" :src="imageUrl(user.profile_picture)" height="100" width="100" style="border-radius: 50%;" />
+          <img v-else src="@/image/userHolder.jpg" height="100" width="100" style="border-radius: 50%;" />
         </button>
-        <span class="name mt-3">{{ user.name }}</span>
+        <h3 class="profile-title mt-3">{{ user.name }}</h3>
         <span class="email">{{ user.email }}</span>
-        
-        <div class="d-flex mt-2">
-          <button class="btn btn-dark" @click="editProfile">Change Password</button>
-        </div>
-        <div class="d-flex mt-2">
-          <button class="btn btn-dark" @click="logout">Log Out</button>
+        <router-link to="/profile/edit" class="btn btn-primary mt-3">Edit Profile</router-link>
+        <div class="button-group">
+          <button class="btn btn-outline-dark mt-2" @click="editProfile">Change Password</button>
+          <button class="btn btn-outline-danger mt-2" @click="logout">Log Out</button>
         </div>
       </div>
     </div>
@@ -20,15 +19,16 @@
 </template>
 
 <script>
-import { useAuthStore } from '@/store'; 
 import axios from 'axios';
+import { useAuthStore } from '@/store';
 
 export default {
   data() {
     return {
       user: {
         name: '',
-        email: ''
+        email: '',
+        profile_picture: '' // Ensure this matches your API response structure
       }
     };
   },
@@ -40,7 +40,7 @@ export default {
       try {
         const response = await axios.get('http://localhost:8000/api/user-profile', {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}` // Attach token for authentication
+            Authorization: `Bearer ${localStorage.getItem('token')}`
           }
         });
 
@@ -51,63 +51,106 @@ export default {
         // Handle error (show error message, redirect to login, etc.)
       }
     },
+    imageUrl(filename) {
+      // Assuming the public disk is configured to point to `public/images/profile_pictures`
+      return `http://localhost:8000/images/profile_pictures/${filename}`;
+    },
     editProfile() {
-    this.$router.push({ name: 'ChangePassword' });
+      this.$router.push({ name: 'ChangePassword' });
       console.log('Navigate to edit profile page or modal');
     },
-   logout() {
-      const authStore = useAuthStore();
-      authStore.clearToken(); // Clear token from store
-      // Redirect to home page
-      this.$router.push({ name: 'Home' }); // Adjust the route name as per your setup
-      console.log('Logged out');
+    logout() {
+      if (confirm("Are you sure you want to log out?")) {
+        const authStore = useAuthStore();
+        authStore.clearToken(); // Clear token from store
+        // Redirect to home page
+        this.$router.push({ name: 'Home' }); // Adjust the route name as per your setup
+        console.log('Logged out');
+      } else {
+        // Do nothing if user cancels the logout
+        console.log('Logout canceled');
+      }
     }
   }
 };
 </script>
 
-
 <style scoped>
-  body {
-    background-color: #000;
-  }
+.card {
+  width: 350px;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
 
-  .card {
-    width: 350px;
-    background-color: #efefef;
-    border: none;
-    cursor: pointer;
-  }
+.btn-secondary {
+  height: 140px;
+  width: 140px;
+  border: none;
+  background-color: transparent;
+}
 
-  .btn-secondary {
-    height: 140px;
-    width: 140px;
-    border: none;
-    background-color: transparent;
-  }
+.profile-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-  .name {
-    font-size: 22px;
-    font-weight: bold;
-  }
+.email {
+  font-size: 16px;
+  font-weight: 500;
+  color: #888;
+  margin-top: 5px;
+}
 
-  .idd {
-    font-size: 14px;
-    font-weight: 600;
-  }
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
 
-  .btn1 {
-    height: 40px;
-    width: 150px;
-    background-color: #3368c6ff;
-    color: white;
-    font-size: 15px;
-    border-radius: 5px;
-  }
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 200px; /* Adjust as needed */
+  margin-bottom: 10px;
+}
 
-  .text span {
-    font-size: 13px;
-    color: #545454;
-    font-weight: 500;
-  }
+.btn-primary {
+  background-color: #A1AF95;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8e9c81;
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: #343a40;
+  border: 1px solid #d8ac73;
+}
+
+.btn-outline-dark:hover {
+  background-color: #d8ac73;
+  color: white;
+}
+
+.btn-outline-danger {
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #d8ac73;
+}
+
+.btn-outline-danger:hover {
+  background-color: #d8ac73;
+  color: white;
+}
 </style>

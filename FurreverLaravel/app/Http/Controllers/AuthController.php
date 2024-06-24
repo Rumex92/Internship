@@ -95,6 +95,7 @@ class AuthController extends Controller
             'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
+            'profile_picture' => $user->profile_picture,
             // Add more fields as needed
         ]);
     }
@@ -134,5 +135,51 @@ class AuthController extends Controller
         $user->save();
     
         return response()->json(['message' => 'Password updated successfully.']);
+    }
+
+    public function updateProfile(Request $request)
+    {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+    $user = Auth::user();
+    $user->name = $request->name;
+
+    if ($request->hasFile('profile_picture')) {
+        $imageName = time().'.'.$request->profile_picture->extension();  
+        $request->profile_picture->move(public_path('images/profile_pictures'), $imageName);
+        $user->profile_picture = $imageName;
+    }
+
+    $user->save();
+
+    return response()->json(['message' => 'Profile updated successfully.', 'user' => $user]);
+}
+
+  // Other admin authentication methods...
+
+    /**
+     * Get all users (for admins).
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getUsers()
+    {
+        $users = User::all(); // Example: Fetch all users
+        return response()->json($users);
+    }
+
+    /**
+     * Get a specific user by ID (for admins).
+     *
+     * @param  int  $userId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getUser($userId)
+    {
+        $user = User::findOrFail($userId); // Example: Find user by ID
+        return response()->json($user);
     }
 }    

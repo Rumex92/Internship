@@ -5,9 +5,10 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <form class="login100-form validate-form" @submit.prevent="login">
+            <img src="../image/Logo.png" alt="Admin Login Image" class="login-image" >
             <span class="login100-form-title p-b-26">
               Admin Login
-            </span>
+            </span> 
             <span class="login100-form-title p-b-48">
               <i class="zmdi zmdi-font"></i>
             </span>
@@ -99,7 +100,14 @@ body, html {
 a:focus {
   outline: none!important;
 }
+.login-image{
+  height: 50px; 
+  width: 70px; 
+  margin-bottom:20px;
+  display: block;margin-left: auto;
+  margin-right: auto;
 
+}
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }

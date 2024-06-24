@@ -122,7 +122,7 @@ export default {
 }
 
 .reservation-button:hover {
-  color: #FF914D;
+  color: #d8ac73;
 }
 
 

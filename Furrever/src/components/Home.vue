@@ -14,13 +14,13 @@
             <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>   
                 <div class="row g-4 mb-4 pb-2">
                  </div>
-            <a href="" class="btn btn-primary py-3 px-5" style="border-radius: 10px;">Explore More</a>
+             <router-link to="/about" class="btn btn-primary py-3 px-5" style="border-radius: 10px;">Explore More</router-link>
         </div>
   </div>
 </div>
 
 <div class="offers">
-<h1>The Purr-fect Care Plan!</h1>
+  <h1 class="title">The Purr-fect Care Plan!</h1>
 </div>
 
 
@@ -244,9 +244,17 @@ library.add(fas);
     background:#A1AF95;
 }
 .reasons{
-     min-height: 300px; 
-    background:#d8ac73;
+    min-height: 300px; 
+    background:#f5edd6;
+    color:#fff;
+    text-align:center;
 }
+.title {
+  margin-top: 20px; /* Adjust this value to move the title down further */
+  /* Additional styles for the title can be added here */
+}
+
+
 .wave-header {
   min-height: 80%;
   width: 100%;

@@ -310,4 +310,13 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+  .btn-primary {
+  background-color: #A1AF95;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8e9c81;
+}
 </style>

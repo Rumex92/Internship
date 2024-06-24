@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -29,5 +30,13 @@ class BookingController extends Controller
         return response()->json([
             'message' => 'Booking created successfully.'
         ], 201);
+    }
+
+    // Method to list all bookings for the authenticated user
+    public function userBookings()
+    {
+        $user = Auth::user();
+        $bookings = Booking::where('user_id', $user->id)->get();
+        return response()->json($bookings);
     }
 }

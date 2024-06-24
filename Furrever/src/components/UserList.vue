@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="mySidenav" class="sidenav">
+     <div id="mySidenav" class="sidenav">
       <a class="closebtn" @click="closeNav">&times;</a>
       <router-link to="/admin/home">Services</router-link>
       <router-link to="/admin/categories">Service Categories</router-link>
@@ -10,36 +10,25 @@
       <router-link :to="{ name: 'AdminAccount' }">Change Password</router-link>
       <a class="logoutbtn" @click="logout">Logout</a>
     </div>
-    <h1>Admin Dashboard-Bookings</h1>
+    <h1>Admin Dashboard-User List</h1>
     <span class="nav" @click="openNav">&#9776; open</span>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>User ID</th>
-          <th>Service Name</th>
-          <th>Appointment Date</th>
+          <th>Profile Picture</th>
           <th>Name</th>
-          <th>Phone Number</th>
-          <th>Note</th>
-          <th>Actions</th>
+          <th>Email</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="booking in paginatedBookings" :key="booking.id">
-          <td>{{ booking.user_id }}</td>
-          <td>{{ booking.service_name }}</td>
-          <td>{{ booking.appointment_date }}</td>
-          <td>{{ booking.name }}</td>
-          <td>{{ booking.phone_number }}</td>
-          <td>{{ booking.note }}</td>
+        <tr v-for="user in paginatedUsers" :key="user.id">
+          <td>{{ user.id }}</td>
           <td>
-            <button class="btn btn-success" style="margin-right: 10px;" @click="markAsCompleted(booking.id)" :disabled="booking.completed">
-              {{ booking.completed ? 'Completed' : 'Mark as Completed' }}
-            </button>
-            <button class="btn btn-danger" @click="deleteBooking(booking.id)">
-              Delete
-            </button>
+            <img :src="getProfilePictureUrl(user.profile_picture)" alt="Profile Picture" class="profile-picture"/>
           </td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
         </tr>
       </tbody>
     </table>
@@ -53,29 +42,28 @@
 
 <script>
 import axios from 'axios';
-import { useAuthStore } from '@/store';
-import { useAdminAuthStore } from '../store/adminAuth';
+import { useAdminAuthStore } from '@/store'; // Ensure this is correctly imported
 
 export default {
   data() {
     return {
-      bookings: [],
+      users: [],
       currentPage: 1,
-      itemsPerPage: 10,
+      itemsPerPage: 10 // Define itemsPerPage
     };
   },
   computed: {
-    paginatedBookings() {
+    paginatedUsers() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
-      return this.bookings.slice(start, end);
+      return this.users.slice(start, end);
     },
     totalPages() {
-      return Math.ceil(this.bookings.length / this.itemsPerPage);
+      return Math.ceil(this.users.length / this.itemsPerPage);
     },
   },
   mounted() {
-    this.fetchBookings();
+    this.fetchUsers();
   },
   methods: {
     openNav() {
@@ -101,80 +89,40 @@ export default {
         console.log('Logout canceled by the user');
       }
     },
-    async fetchBookings() {
+    async fetchUsers() {
       try {
-        const authStore = useAuthStore();
+        const adminAuthStore = useAdminAuthStore();
+        const token = adminAuthStore.token;
+
+        if (!token) {
+          throw new Error('Token not available');
+        }
+
         const config = {
           headers: {
-            Authorization: `Bearer ${authStore.token}`
+            Authorization: `Bearer ${token}`
           }
         };
 
-        const response = await axios.get('http://localhost:8000/api/admin/bookings', config);
-        this.bookings = await this.mapServiceNames(response.data); // Map service names
+        const response = await axios.get('http://localhost:8000/api/admin/users', config);
+        this.users = response.data;
       } catch (error) {
-        console.error('Error fetching bookings:', error);
+        console.error('Error fetching users:', error);
       }
     },
-    async mapServiceNames(bookings) {
-      // Fetch service details for each booking and map service_name to booking object
-      const servicesResponse = await axios.get('http://localhost:8000/api/services'); // Assuming this endpoint returns all services
-
-      const servicesMap = servicesResponse.data.reduce((map, service) => {
-        map[service.id] = service.service_name;
-        return map;
-      }, {});
-
-      return bookings.map(booking => ({
-        ...booking,
-        service_name: servicesMap[booking.service_id] || 'Unknown Service'
-      }));
-    },
-    async markAsCompleted(bookingId) {
-      try {
-        const authStore = useAuthStore();
-        const config = {
-          headers: {
-            Authorization: `Bearer ${authStore.token}`
-          }
-        };
-
-        const response = await axios.put(`http://localhost:8000/api/admin/bookings/${bookingId}/complete`, {}, config);
-        console.log('Booking marked as completed:', response.data);
-        this.fetchBookings(); // Refresh the list of bookings
-      } catch (error) {
-        console.error('Error marking booking as completed:', error);
-      }
-    },
-    async deleteBooking(bookingId) {
-      try {
-        const authStore = useAuthStore();
-        const config = {
-          headers: {
-            Authorization: `Bearer ${authStore.token}`
-          }
-        };
-
-        const response = await axios.delete(`http://localhost:8000/api/admin/bookings/${bookingId}`, config);
-        console.log('Booking deleted:', response.data);
-        this.fetchBookings(); // Refresh the list of bookings
-      } catch (error) {
-        console.error('Error deleting booking:', error);
-      }
+    getProfilePictureUrl(picture) {
+      return picture ? `http://localhost:8000/images/profile_pictures/${picture}` : 'http://localhost:8000/images/default_profile_picture.png';
     },
     prevPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-      }
+      if (this.currentPage > 1) this.currentPage--;
     },
     nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-      }
+      if (this.currentPage < this.totalPages) this.currentPage++;
     }
   }
 };
 </script>
+
 
 <style scoped>
 .nav {
@@ -265,5 +213,11 @@ export default {
 .pagination-info {
   margin: 0 10px;
   font-size: 16px;
+}
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 </style>

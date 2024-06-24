@@ -10,7 +10,7 @@
             <li class="breadcrumb-item">
               <a class="text-white"style="text-decoration:none;" href="#">Pages</a>
             </li>
-            <li class="breadcrumb-item text-primary active" aria-current="page">
+            <li class="breadcrumb-item " style="color:#d8ac73;"aria-current="page">
               About
             </li>
           </ol>
@@ -56,7 +56,7 @@
                             <i class="fa fa-check text-primary me-2"></i>Home Delivery
                         </div>
                     </div>
-                    <a class="btn rounded-pill py-3 px-5" style="background-color:#d8ac73" href="">Read More</a>
+                    
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <form class="login100-form validate-form" @submit.prevent="register">
+              <img src="../image/Logo.png" alt="Admin Login Image" class="login-image" >
             <span class="login100-form-title p-b-26">
               Admin Registration
             </span>
@@ -141,7 +142,14 @@ export default defineComponent({
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
 }
+.login-image{
+  height: 50px; 
+  width: 70px; 
+  margin-bottom:20px;
+  display: block;margin-left: auto;
+  margin-right: auto;
 
+}
 body, html {
   height: 100%;
 }

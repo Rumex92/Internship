@@ -1,5 +1,5 @@
 <template>
-<div>
+  <div>
     <div id="mySidenav" class="sidenav">
       <a class="closebtn" @click="closeNav">&times;</a>
       <router-link to="/admin/home">Services</router-link>
@@ -13,87 +13,56 @@
       <h2>Admin Dashboard - Categories</h2>
     <span class="nav" @click="openNav">&#9776; open</span>
     <div id="main">
-      <button @click="addCategory"  style="margin-bottom: 10px;"class="btn btn-success">Add New Category</button>
-      <table class="crud-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Category Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="category in paginatedCategories" :key="category.id">
-            <td>{{ category.id }}</td>
-            <td>{{ category.category_name }}</td>
-            <td>
-              <button class="btn btn-warning" style="margin-right: 10px;" @click="editCategory(category.id)">Edit</button>
-              <button class="btn btn-danger" @click="deleteCategory(category.id)">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="pagination">
-     <button class="pagination-button" @click="prevPage" :disabled="currentPage === 1">Previous</button>
-     <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="admin in admins" :key="admin.id">
+          <td>{{ admin.name }}</td>
+          <td>{{ admin.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button class="pagination-button" @click="prevPage" :disabled="currentPage === 1">Previous</button>
+      <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
       <button class="pagination-button" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
     </div>
-
-    </div>
-
-    <div v-if="isModalOpen" class="modal">
-      <div class="modal-content">
-        <span class="close" @click="closeModal">&times;</span>
-        <h3>{{ isEdit ? 'Edit Category' : 'Add Category' }}</h3>
-        <form @submit.prevent="isEdit ? updateCategory() : createCategory()">
-          <label for="category_name">Category Name:</label>
-          <input type="text" v-model="form.category_name" required>
-          <button type="submit">{{ isEdit ? 'Update' : 'Create' }}</button>
-        </form>
-      </div>
-    </div>
+  </div>
   </div>
 </template>
 
 <script>
-import { useCategoryStore } from '../store/categories';
-import { useAdminAuthStore } from '../store/adminAuth';
+import axios from 'axios';
+import { useAdminAuthStore } from '@/store'; // Ensure this is correctly imported
 
 export default {
-  name: 'AdminCategories',
   data() {
     return {
-      isModalOpen: false,
-      isEdit: false,
-      form: {
-        id: null,
-        category_name: '',
-      }
+      admins: [],
+      currentPage: 1,
+      itemsPerPage: 10 // Define itemsPerPage
     };
   },
   computed: {
-    categories() {
-      return useCategoryStore().categories;
-    },
-    currentPage() {
-      return useCategoryStore().currentPage;
-    },
-    perPage() {
-      return useCategoryStore().perPage;
-    },
-    paginatedCategories() {
-      return useCategoryStore().paginatedCategories;
+    paginatedAdmins() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.admins.slice(start, end);
     },
     totalPages() {
-      return useCategoryStore().totalPages;
+      return Math.ceil(this.admins.length / this.itemsPerPage);
     },
   },
-  created() {
-    useCategoryStore().fetchCategories();
+  mounted() {
+    this.fetchAdmins();
   },
   methods: {
-    openNav() {
+     openNav() {
       document.getElementById("mySidenav").style.width = "250px";
     },
     closeNav() {
@@ -116,48 +85,33 @@ export default {
     console.log('Logout canceled by the user');
   }
 },
-    addCategory() {
-      this.isEdit = false;
-      this.form = {
-        id: null,
-        category_name: '',
-      };
-      this.isModalOpen = true;
+    async fetchAdmins() {
+      try {
+        const adminAuthStore = useAdminAuthStore();
+        const token = adminAuthStore.token;
+
+        if (!token) {
+          throw new Error('Token not available');
+        }
+
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        };
+
+        const response = await axios.get('http://localhost:8000/api/admins', config);
+        this.admins = response.data.admins;
+      } catch (error) {
+        console.error('Error fetching admins:', error);
+      }
     },
-    editCategory(id) {
-      const category = this.categories.find(category => category.id === id);
-      this.isEdit = true;
-      this.form = { ...category };
-      this.isModalOpen = true;
-    },
-    deleteCategory(id) {
-      useCategoryStore().deleteCategory(id)
-        .then(() => {
-          // Removed alert(message);
-        });
-    },
-    createCategory() {
-      useCategoryStore().createCategory(this.form)
-        .then(() => {
-          this.closeModal();
-          // Removed alert(message);
-        });
-    },
-    updateCategory() {
-      useCategoryStore().updateCategory(this.form)
-        .then(() => {
-          this.closeModal();
-          // Removed alert(message);
-        });
-    },
-    closeModal() {
-      this.isModalOpen = false;
-    },
+   
     prevPage() {
-      if (this.currentPage > 1) useCategoryStore().setCurrentPage(this.currentPage - 1);
+      if (this.currentPage > 1) this.currentPage--;
     },
     nextPage() {
-      if (this.currentPage < this.totalPages) useCategoryStore().setCurrentPage(this.currentPage + 1);
+      if (this.currentPage < this.totalPages) this.currentPage++;
     }
   }
 };

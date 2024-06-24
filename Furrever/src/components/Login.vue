@@ -4,6 +4,7 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <form class="login100-form validate-form" @submit.prevent="login">
+                     <img src="../image/Logo.png" alt="User Login Image" class="login-image" >
             <span class="login100-form-title p-b-26">
               Login
             </span>
@@ -109,7 +110,14 @@ a:focus {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
+.login-image{
+  height: 50px; 
+  width: 70px; 
+  margin-bottom:20px;
+  display: block;margin-left: auto;
+  margin-right: auto;
 
+}
 p {
   font-size: 14px;
   line-height: 1.7;

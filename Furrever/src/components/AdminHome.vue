@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div id="mySidenav" class="sidenav">
+     <div id="mySidenav" class="sidenav">
       <a class="closebtn" @click="closeNav">&times;</a>
       <router-link to="/admin/home">Services</router-link>
       <router-link to="/admin/categories">Service Categories</router-link>
       <router-link to="/admin/bookings">Bookings</router-link>
-      <router-link  :to="{ name: 'AdminAccount' }">Change Password</router-link>
+      <router-link :to="{ name: 'AdminList' }">Admin List</router-link>
+      <router-link :to="{ name: 'UserList' }">User List</router-link>
+      <router-link :to="{ name: 'AdminAccount' }">Change Password</router-link>
       <a class="logoutbtn" @click="logout">Logout</a>
     </div>
-
     <h2>Admin Dashboard - Services</h2>
  <span class="nav" @click="openNav">&#9776; open</span>
 
@@ -34,7 +35,7 @@
             <td>{{ getCategoryName(service.category_id) }}</td>
             <td>{{ service.price }}</td>
             <td>
-              <button class="btn btn-warning" style="margin-right: 10px;"  @click="editService(service.id)">Edit</button>
+              <button class="btn btn-warning" style="margin-bottom: 10px;"  @click="editService(service.id)">Edit</button>
               <button class="btn btn-danger" @click="deleteService(service.id)">Delete</button>
             </td>
           </tr>

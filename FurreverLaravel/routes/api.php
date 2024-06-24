@@ -50,6 +50,8 @@
      Route::get('/bookings', [AdminBookingController::class, 'index'])->name('admin.bookings.index');
      Route::put('/bookings/{booking}/complete', [AdminBookingController::class, 'markAsCompleted'])->name('admin.bookings.complete');
      Route::delete('/bookings/{booking}', [AdminBookingController::class, 'destroy'])->name('admin.bookings.destroy');
+
+    
  });
  
  // Public routes for categories
@@ -78,8 +80,11 @@
  });
  
  Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
- 
- Route::middleware('auth:api')->post('/change-password', [AuthController::class, 'changePassword'])->name('change-password');
+
+ Route::middleware('auth:api')->group(function () {
+    Route::post('/change-password', [AuthController::class, 'changePassword'])->name('change-password');
+    Route::post('/update-profile', [AuthController::class, 'updateProfile'])->name('update-profile');
+});
 
 
 // Admin account management routes
@@ -87,4 +92,19 @@ Route::group(['prefix' => 'admin/account', 'middleware' => 'auth:admin-api'], fu
     Route::put('password', [AdminAuthController::class, 'changePassword']);
     Route::delete('/', [AdminAuthController::class, 'deleteAccount']);
     Route::get('profile', [AdminAuthController::class, 'profile'])->name('admin.profile'); // Removed the leading slash here
+});
+
+Route::middleware('auth:admin-api')->group(function () {
+    Route::get('/admins', [AdminAuthController::class, 'admins']);
+});
+
+
+Route::group(['prefix' => 'admin', 'middleware' =>  'auth:admin-api'], function () {
+    Route::get('users', [AuthController::class, 'getUsers'])->name('admin.users.index'); // List all users
+    Route::get('users/{userId}', [AuthController::class, 'getUser'])->name('admin.users.show'); // View specific user by ID
+});
+
+// User routes for bookings
+Route::middleware('auth:api')->group(function () {
+    Route::get('/user/bookings', [BookingController::class, 'userBookings'])->name('user.bookings');
 });

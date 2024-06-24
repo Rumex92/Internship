@@ -2,10 +2,8 @@
   <div class="container my-5">
     <div class="card p-4 shadow-lg">
       <div class="card-body">
-        <router-link :to="{ name: 'Profile' }" class="btn btn-outline-secondary mb-3">
-          <i class="fas fa-arrow-left"></i> Back
-        </router-link>
-        <h4 class="card-title text-center mb-4">Change Password</h4>
+      
+        <h4 class="card-title text-center mb-4" style="color:#A1AF95;">Change Password</h4>
         <form @submit.prevent="changePassword">
           <div class="form-group">
             <label for="oldPassword">Old Password</label>
@@ -15,6 +13,7 @@
             <label for="newPassword">New Password</label>
             <input type="password" class="form-control" id="newPassword" v-model="newPassword" required>
           </div>
+           <router-link to="/profile" class="btn btn-block mt-4" style="margin-right:10px;background-color:#d8ac73;color:#fff;">Back to Profile</router-link>
           <button type="submit" class="btn btn-primary btn-block mt-4">Change Password</button>
         </form>
         <div v-if="changePasswordSuccess" class="alert alert-success mt-3" role="alert">
@@ -88,4 +87,13 @@ export default {
   .alert {
     text-align: center;
   }
+  .btn-primary {
+  background-color: #A1AF95;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8e9c81;
+}
 </style>

@@ -11,8 +11,8 @@
             <li class="breadcrumb-item">
               <router-link class="text-white" style="text-decoration:none;"to="#">Pages</router-link>
             </li>
-            <li class="breadcrumb-item text-primary active" aria-current="page">
-              Cat Services
+           <li class="breadcrumb-item " style="color:#d8ac73;"aria-current="page">
+              Service
             </li>
           </ol>
         </nav>
