@@ -4,30 +4,33 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <form class="login100-form validate-form" @submit.prevent="register">
-              <img src="../image/Logo.png" alt="Admin Login Image" class="login-image" >
+            <img src="../image/Logo.png" alt="Admin Login Image" class="login-image">
             <span class="login100-form-title p-b-26">
               Admin Registration
             </span>
             <span class="login100-form-title p-b-48">
               <i class="zmdi zmdi-font"></i>
             </span>
-            <div class="text-danger">{{ errorMessage }}</div>
-            <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+            <div v-if="errors.name" class="text-danger">{{ errors.name }}</div>
+            <div class="wrap-input100 validate-input" data-validate="Valid name is required">
               <input class="input100" type="text" v-model="name" placeholder="Name">
               <span class="focus-input100"></span>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+            <div v-if="errors.email" class="text-danger">{{ errors.email }}</div>
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required">
               <input class="input100" type="text" v-model="email" placeholder="Email">
               <span class="focus-input100"></span>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <div v-if="errors.password" class="text-danger">{{ errors.password }}</div>
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
               <span class="btn-show-pass">
                 <i class="zmdi zmdi-eye"></i>
               </span>
               <input class="input100" type="password" v-model="password" placeholder="Password">
               <span class="focus-input100"></span>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <div v-if="errors.confirmPassword" class="text-danger">{{ errors.confirmPassword }}</div>
+            <div class="wrap-input100 validate-input" data-validate="Confirm Password is required">
               <span class="btn-show-pass">
                 <i class="zmdi zmdi-eye"></i>
               </span>
@@ -100,8 +103,8 @@ export default defineComponent({
 
         if (!password.value) {
           errors.value.password = 'Password is required';
-        } else if (password.value.length < 6) {
-          errors.value.password = 'Password must be at least 6 characters long';
+        } else if (password.value.length < 8) {
+          errors.value.password = 'Password must be at least 8 characters long';
         }
 
         if (password.value !== confirmPassword.value) {

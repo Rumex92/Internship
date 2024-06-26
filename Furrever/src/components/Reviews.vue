@@ -222,18 +222,18 @@ body {
 
 .send {
   background-color: #fff;
-  border-color: #A1AF95;
-  color: #A1AF95; 
+  border-color: #a6b7aa;
+  color: #a6b7aa; 
 }
 
 .send:hover {
-  background-color: #A1AF95; 
-  border-color: #A1AF95;
+  background-color: #a6b7aa; 
+  border-color: #a6b7aa;
   color: #fff; 
 }
 .cancel {
- background-color: #A1AF95;
-  border-color: #A1AF95;
+ background-color: #a6b7aa;
+  border-color: #a6b7aa;
   color: #fff; 
 }
 
@@ -311,7 +311,7 @@ body {
   align-items: center;
 }
   .btn-primary {
-  background-color: #A1AF95;
+  background-color: #a6b7aa;
   color: white;
   border: none;
 }

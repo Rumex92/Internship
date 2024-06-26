@@ -26,7 +26,7 @@
       </div>
       <div class=" justify-content-between">
         <button type="button" @click="goBackHome" class="btn " style="margin-right:10px;background-color:#d8ac73;">Back to Home</button>
-        <button type="submit" class="btn" style="background-color:#A1AF95;">Submit Booking</button>
+        <button type="submit" class="btn" style="background-color:#a6b7aa;">Submit Booking</button>
       </div>
     </form>
     <div v-if="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>

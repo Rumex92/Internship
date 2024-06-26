@@ -23,7 +23,7 @@
         <div class="text-center text-black">
           <p>OUR SERVICES</p>
           <h2 class="py-2">Explore unlimited possibilities</h2>
-          <p class="para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae asperiores, quia accusantium sunt corporis optio recusandae? Nostrum libero pariatur cumque, ipsa dolores voluptatibus voluptate alias sit fuga. Itaque, ea quo.</p>
+          <p class="para-light" style="margin-bottom:30px;margin-top:30px;">Welcome to our Services page! Whether you have a dog or a cat, we offer a range of specialized services to meet your pet's unique needs. Please select the type of pet to explore the services we provide.</p>
         </div>
         <div class="row gy-4 py-2 d-flex justify-content-center" data-aos="zoom-in">
           <div v-for="category in categories" :key="category.id" class="col-lg-4">
@@ -126,7 +126,7 @@ h4 {
     padding: 20px;
     border-radius: 0;
     border: 2px solid white;
-    background-color: #c4c8b2; 
+    background-color: #a6b7aa; 
 }
 
 .services .card:hover {
@@ -134,7 +134,7 @@ h4 {
     transform: scale(1.01);
     border-image-slice: 1;
     border-width: 2px;
-    box-shadow: 5px 5px 0px 0px  #c4c8b2;
+    box-shadow: 5px 5px 0px 0px  #a6b7aa;
 }
 
 .services .row {

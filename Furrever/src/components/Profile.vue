@@ -10,6 +10,7 @@
         <span class="email">{{ user.email }}</span>
         <router-link to="/profile/edit" class="btn btn-primary mt-3">Edit Profile</router-link>
         <div class="button-group">
+         <router-link to="/profile/booking" class="btn btn-outline-dark mt-2">View Bookings</router-link>
           <button class="btn btn-outline-dark mt-2" @click="editProfile">Change Password</button>
           <button class="btn btn-outline-danger mt-2" @click="logout">Log Out</button>
         </div>
@@ -123,7 +124,7 @@ export default {
 }
 
 .btn-primary {
-  background-color: #A1AF95;
+  background-color: #a6b7aa;
   color: white;
   border: none;
 }

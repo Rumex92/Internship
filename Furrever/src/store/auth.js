@@ -52,9 +52,12 @@ export const useAuthStore = defineStore('auth', {
           return false; // Handle unexpected status code
         }
       } catch (error) {
-        console.error('Registration failed:', error.message || 'Unknown error');
-        return false; // Handle network errors or exceptions
-      }
+        if (error.response && error.response.status === 409) {
+            throw new Error('Email already exists');
+        }
+        throw error;
+
+    }
     },
     
     setToken(token) {

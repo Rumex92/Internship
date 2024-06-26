@@ -114,8 +114,8 @@ export default defineComponent({
 
         if (!password.value) {
           errors.value.password = 'Password is required';
-        } else if (password.value.length < 6) {
-          errors.value.password = 'Password must be at least 6 characters long';
+        } else if (password.value.length < 8) {
+          errors.value.password = 'Password must be at least 8 characters long';
         }
 
         if (password.value !== confirmPassword.value) {
@@ -382,7 +382,7 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #a1af95;
+  background: #a6b7aa;
   top: 0;
   left: -100%;
   transition: all .4s;

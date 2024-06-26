@@ -39,21 +39,22 @@
             <div class="col-lg-6 ;">
                 <div class="h-100">
                     <p class="text-uppercase mb-2" style="color:#d8ac73"> About Us</p>
-                    <h1 class="display-6 mb-4">We Bake Every Item From The Core Of Our Hearts</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <h3 class="display-9 mb-4">Our Mission</h3>
+                    <p>At Furrever, our mission is to provide a safe, nurturing, and stimulating environment for your beloved pets. Whether you need daycare, grooming, or boarding services, we are dedicated to offering the highest quality care tailored to meet the unique needs of each pet.</p>
+                      <h4 class="display-9 mb-4">What Sets Us Apart</h4>
+                    <p>Our experienced and compassionate staff is trained to handle pets of all breeds and sizes with the utmost care and attention. We pride ourselves on creating a home away from home for your furry friends, ensuring they are comfortable, entertained, and well-cared for.</p>
                     <div class="row g-2 mb-4">
                         <div class="col-sm-6">
-                            <i class="fa fa-check text-primary me-2"></i>Quality Products
+                            <i class="fa fa-check text-primary me-2"></i>Experienced Staff
                         </div>
                         <div class="col-sm-6">
-                            <i class="fa fa-check text-primary me-2"></i>Custom Products
+                            <i class="fa fa-check text-primary me-2"></i>Top-Notch Facilities
                         </div>
                         <div class="col-sm-6">
-                            <i class="fa fa-check text-primary me-2"></i>Online Order
+                            <i class="fa fa-check text-primary me-2"></i>Personalized Attention
                         </div>
                         <div class="col-sm-6">
-                            <i class="fa fa-check text-primary me-2"></i>Home Delivery
+                            <i class="fa fa-check text-primary me-2"></i>Peace of Mind
                         </div>
                     </div>
                     
@@ -63,6 +64,8 @@
     </div>
 </div>
 
+
+  
 
 </template>
 

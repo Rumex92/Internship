@@ -111,7 +111,7 @@ export default {
 }
 
 .reservation-button {
-  background-color: #A1AF95;
+  background-color: #a6b7aa;
   color: white;
   border-radius: 10px;
   border: none; 

@@ -32,4 +32,23 @@ class AdminBookingController extends Controller
 
         return response()->json(['message' => 'Booking deleted']);
     }
+ // Method to search bookings by keyword
+ public function search(Request $request)
+ {
+     $keyword = $request->input('keyword');
+
+     if (empty($keyword)) {
+         return response()->json(['message' => 'Please provide a keyword for search'], 400);
+     }
+
+     $bookings = Booking::where(function ($query) use ($keyword) {
+         $query->where('name', 'like', '%' . $keyword . '%')
+             ->orWhereHas('service', function ($q) use ($keyword) {
+                 $q->where('service_name', 'like', '%' . $keyword . '%');
+             })
+             ->orWhere('appointment_date', 'like', '%' . $keyword . '%');
+     })->get();
+
+     return response()->json($bookings);
+ }
 }

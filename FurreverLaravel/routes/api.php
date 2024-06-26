@@ -108,3 +108,7 @@ Route::group(['prefix' => 'admin', 'middleware' =>  'auth:admin-api'], function 
 Route::middleware('auth:api')->group(function () {
     Route::get('/user/bookings', [BookingController::class, 'userBookings'])->name('user.bookings');
 });
+
+
+// Route for searching bookings
+Route::get('/admin/bookings/search', [AdminBookingController::class, 'search']);

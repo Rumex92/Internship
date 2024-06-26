@@ -88,7 +88,7 @@ export default {
     text-align: center;
   }
   .btn-primary {
-  background-color: #A1AF95;
+  background-color: #a6b7aa;
   color: white;
   border: none;
 }

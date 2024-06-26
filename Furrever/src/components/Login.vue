@@ -4,7 +4,7 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <form class="login100-form validate-form" @submit.prevent="login">
-                     <img src="../image/Logo.png" alt="User Login Image" class="login-image" >
+            <img src="../image/Logo.png" alt="User Login Image" class="login-image">
             <span class="login100-form-title p-b-26">
               Login
             </span>
@@ -12,17 +12,26 @@
               <i class="zmdi zmdi-font"></i>
             </span>
             <div class="text-danger">{{ errorMessage }}</div>
-            <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
-              <input class="input100" type="text" v-model="email" placeholder="Email">
-              <span class="focus-input100"></span>
+            
+            <div class="form-group">
+              <div v-if="emailError" class="text-danger">{{ emailError }}</div>
+              <div class="wrap-input100 validate-input" :class="{ 'input-error': emailError }">
+                <input class="input100" type="text" v-model="email" placeholder="Email" @blur="validateEmail">
+                <span class="focus-input100"></span>
+              </div>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Enter password">
-              <span class="btn-show-pass">
-                <i class="zmdi zmdi-eye"></i>
-              </span>
-              <input class="input100" type="password" v-model="password" placeholder="Password">
-              <span class="focus-input100"></span>
+            
+            <div class="form-group">
+              <div v-if="passwordError" class="text-danger">{{ passwordError }}</div>
+              <div class="wrap-input100 validate-input" :class="{ 'input-error': passwordError }">
+                <span class="btn-show-pass">
+                  <i class="zmdi zmdi-eye"></i>
+                </span>
+                <input class="input100" type="password" v-model="password" placeholder="Password" @blur="validatePassword">
+                <span class="focus-input100"></span>
+              </div>
             </div>
+            
             <div class="container-login100-form-btn">
               <div class="wrap-login100-form-btn">
                 <div class="login100-form-bgbtn"></div>
@@ -31,6 +40,7 @@
                 </button>
               </div>
             </div>
+            
             <div class="text-center p-t-115">
               <br>
               <span class="txt1">
@@ -47,6 +57,7 @@
   </div>
 </template>
 
+
 <script>
 import { useAuthStore } from '@/store';
 import router from '@/router';
@@ -61,26 +72,47 @@ export default {
       email: '',
       password: '',
       errorMessage: '',
+      emailError: '',
+      passwordError: ''
     };
   },
-
   methods: {
+    validateEmail() {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!this.email) {
+        this.emailError = 'Email is required';
+      } else if (!emailPattern.test(this.email)) {
+        this.emailError = 'Invalid email format';
+      } else {
+        this.emailError = '';
+      }
+    },
+    validatePassword() {
+      if (!this.password) {
+        this.passwordError = 'Password is required';
+      } else {
+        this.passwordError = '';
+      }
+    },
     async login() {
+      this.validateEmail();
+      this.validatePassword();
+
+      if (this.emailError || this.passwordError) {
+        return;
+      }
+
       try {
         this.errorMessage = ''; 
         const response = await this.authStore.login(this.email, this.password);
 
         if (response) {
           const { access_token } = response;
-
-          // Store the access token in local storage or Vuex store
           localStorage.setItem('access_token', access_token);
-
-          // Redirect to Home page
           router.push({ name: 'Home' });
         }
       } catch (error) {
-        if (error.message === 'Invalid credentials') {
+        if (error.response && error.response.status === 401) {
           this.errorMessage = 'Invalid email or password. Please try again.';
         } else {
           this.errorMessage = 'An error occurred. Please try again later.';
@@ -348,6 +380,7 @@ iframe {
   padding: 0 20px;
   width: 100%;
   height: 50px;
+  background-color:#a6b7aa;
 }
 
 .wrap-login100-form-btn:hover .login100-form-bgbtn {

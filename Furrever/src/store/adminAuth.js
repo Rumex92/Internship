@@ -56,9 +56,12 @@ export const useAdminAuthStore = defineStore('adminAuth', {
           return false;
         }
       } catch (error) {
-        console.error('Registration failed:', error.message || 'Unknown error');
-        return false;
-      }
+        if (error.response && error.response.status === 409) {
+            throw new Error('Email already exists');
+        }
+        throw error;
+
+    }
     },
     
     async logout() {

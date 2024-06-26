@@ -7,11 +7,12 @@
     
    <div class="p-lg-5 pe-lg-0">
         <div class="section-title text-start">
-            <h2 class="display-3 mb-4"style="padding-top:60px;">Welcome to Furrever!</h2>
-            <h1 class="display-3 mb-4">Welcome to Furrever!</h1>
+            <h3 class="display-3 mb-4"style="padding-top:60px;">Your Pet’s Favorite Place to Play and Stay</h3>
+            <h1 class="display-3 mb-4">Welcome to Furrever</h1>
          </div>
-            <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
-            <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>   
+            <p class="mb-2 pb-1 h5">Discover the ultimate pet daycare experience at Furrever. </p>
+                <p class="mb-4 pb-1 h5">At Furrever, we provide a safe, loving, and fun environment for your furry friends.</p>
+          
                 <div class="row g-4 mb-4 pb-2">
                  </div>
              <router-link to="/about" class="btn btn-primary py-3 px-5" style="border-radius: 10px;">Explore More</router-link>
@@ -20,7 +21,7 @@
 </div>
 
 <div class="offers">
-  <h1 class="title">The Purr-fect Care Plan!</h1>
+  <h1 class="title">Services We Offer</h1>
 </div>
 
 
@@ -31,11 +32,11 @@
             <div class="col-md-6 col-lg-3">
                 <div class="featurs-item text-center rounded  p-4">
                     <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                       <font-awesome-icon :icon="['fas', 'bone']" class="fa-3x icon"></font-awesome-icon>
+                       <font-awesome-icon :icon="['fas', 'shower']" class="fa-3x icon"></font-awesome-icon>
                     </div>
                     <div class="featurs-content text-center">
-                        <h5 style="color:#fff;">No transportation</h5>
-                        <p class="mb-0" style="color:#fff;">save time</p>
+                        <h5 style="color:#fff;">Grooming</h5>
+                        <p class="mb-0" style="color:#fff;">Keep Your Pet Looking and Feeling Great</p>
                     </div>
                 </div>
             </div>
@@ -46,8 +47,8 @@
                        <font-awesome-icon :icon="['fas', 'dog']" class="fa-3x icon"></font-awesome-icon>
                     </div>
                     <div class="featurs-content text-center">
-                        <h5 style="color:#fff;">One_one_one</h5>
-                        <p class="mb-0" style="color:#fff;">You can study alone</p>
+                        <h5 style="color:#fff;">Boarding</h5>
+                        <p class="mb-0" style="color:#fff;">Comfortable and Secure Overnight Stays</p>
                     </div>
                 </div>
             </div>
@@ -58,8 +59,8 @@
                         <font-awesome-icon :icon="['fas', 'cat']" class="fa-3x icon"></font-awesome-icon>
                     </div>
                     <div class="featurs-content text-center">
-                        <h5 style="color:#fff;">24/7 Support</h5>
-                        <p class="mb-0" style="color:#fff;">Support every time fast</p>
+                        <h5 style="color:#fff;">Day Care</h5>
+                        <p class="mb-0" style="color:#fff;">Fun and Engaging Daytime Activities</p>
                     </div>
                 </div>
             </div>
@@ -67,14 +68,16 @@
     </div>
 </div>
 </div>
-    <div class="container" style="height:650px; padding-top:100px;">
+    <div class="container" style="height:650px; padding-top:100px;color:#fff;">
          <div class="row g-3">
             <div class="row img-twice position-relative h-100" style="margin-left:55px;">
                   <!-- Color Layer Between Images -->
              <div class="color-layer-between">
-          <h2 class="title" style="padding-top:40px; margin:20px;">Your Title Here</h2>
-          <p class="description" style=" margin:20px;">Lorem diam sit erat dolor elitr et, diam lorem justo labore amet clita labore stet eos magna sit. Elitr dolor eirmod duo tempor lorem, elitr clita ipsum sea. Nonumy rebum et takimata ea takimata amet gubergren, erat rebum magna lorem stet eos. Diam amet et kasd eos duo dolore no.</p>
+          <h2 class="title" style="padding-top:40px; margin:20px;">About Us</h2>
+          <p class="description" style=" margin:20px;">Welcome to Furrever, where your pet's happiness and well-being are our top priorities. Founded in 2020, our mission is to provide a safe, nurturing, and stimulating environment for your beloved pets. Whether you need daycare, grooming, or boarding services, we are dedicated to offering the highest quality care tailored to meet the unique needs of each pet.</p>
+           <router-link to="/about" class="btn btn-primary py-3 px-5" style="border-radius: 10px; margin-left:20px; color:#fff;">Explore More</router-link>
         </div>
+        
                
                 <div class="col-6">
                  <img class="img-fluid rounded zoom-on-hover" src="../image/Doggos.jpg" alt="">
@@ -84,38 +87,51 @@
     </div>
 
 <div class="reasons">
-<h1>The Purr-fect Care Plan!</h1>
+    <h2>Our Commitment to Your Pets</h2>
+    <p> " At Furrever, we are dedicated to providing exceptional care for your beloved pets. Our experienced staff, top-notch facilities, and personalized attention ensure that every pet feels safe, loved, and entertained. Trust us to provide a home away from home where your pets can thrive. "</p>
 </div>
 
 
-  <div class="container-fluid overflow-hidden my-5 px-lg-0">
+
+  <div class="container-fluid overflow-hidden my-5 px-lg-0" >
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
                 <div class="p-lg-5 ps-lg-0">
                     <div class="section-title text-start">
-                        <h1 class="display-5 mb-4">Why Choose Us</h1>
+                        <h1 class="display-5 mb-4"style="color:#a6b7aa;">Why Choose Us</h1>
                     </div>
-                    <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
+                    <p class="mb-4 pb-2">At Furrever, we pride ourselves on providing exceptional care for your pets. Each pet receives personalized attention, tailored to their individual needs and preferences, ensuring they feel comfortable during their time with us. With us, you can have peace of mind knowing that your beloved pets are in caring hands, allowing you to enjoy your time away worry-free.</p>
                     <div class="row g-4">
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                    <font-awesome-icon :icon="['fas', 'paw']" />
+                                    <font-awesome-icon :icon="['fas', 'paw']" style="color:#a6b7aa;"/>
                                 </div>
                                 <div class="ms-4">
                                     
-                                    <h5 class="mb-0">Expert Care</h5>
+                                    <h5 class="mb-0">Experienced Staff</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                     <font-awesome-icon :icon="['fas', 'paw']" />
+                                     <font-awesome-icon :icon="['fas', 'paw']" style="color:#a6b7aa;"/>
                                 </div>
                                 <div class="ms-4">
 
+                                    <h5 class="mb-0">Top-Notch Facilities</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                     <font-awesome-icon :icon="['fas', 'paw']"style="color:#a6b7aa;" />
+                                </div>
+                                <div class="ms-4">
+                                   
                                     <h5 class="mb-0">Personalized Attention</h5>
                                 </div>
                             </div>
@@ -123,22 +139,11 @@
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                     <font-awesome-icon :icon="['fas', 'paw']" />
-                                </div>
-                                <div class="ms-4">
-                                   
-                                    <h5 class="mb-0">Peace of Mind</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex align-items-center">
-                                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                    <font-awesome-icon :icon="['fas', 'paw']" />
+                                    <font-awesome-icon :icon="['fas', 'paw']" style="color:#a6b7aa;"/>
                                 </div>
                                 <div class="ms-4">
                                     
-                                    <h5 class="mb-0">Convenient Service</h5>
+                                    <h5 class="mb-0">Peace of Mind</h5>
                                 </div>
                             </div>
                         </div>
@@ -177,12 +182,11 @@ library.add(fas);
 
 <style scoped>
 
-:root {
- 
-     --quicksand-font: 'Quicksand', sans-serif;
-    --montserrat-font: 'Montserrat', sans-serif;
-    --bs-gradient: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0))
+* {
+
+  font-family: 'Quicksand', sans-serif;
 }
+
 
 *,*::before,*::after {
     box-sizing: border-box
@@ -229,7 +233,7 @@ library.add(fas);
     left: 600px;
     width: 45%;
     height: 370px; 
-    background-color:#A1AF95; 
+    background-color:#a6b7aa; 
     transform: translateY(-50%);
     z-index: 1; 
     border-radius:10px;
@@ -241,14 +245,32 @@ library.add(fas);
 }
 .about-container{
     min-height: 300px; 
-    background:#A1AF95;
+    background:#a6b7aa;
 }
-.reasons{
-    min-height: 300px; 
-    background:#f5edd6;
-    color:#fff;
-    text-align:center;
+.reasons {
+       display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: #f5edd6;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
 }
+.reasons h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+     color: #d8ac73;
+
+}
+.reasons p {
+    max-width: 800px; 
+    margin: 0;
+     color:  #a6b7aa;
+}
+
+
 .title {
   margin-top: 20px; /* Adjust this value to move the title down further */
   /* Additional styles for the title can be added here */

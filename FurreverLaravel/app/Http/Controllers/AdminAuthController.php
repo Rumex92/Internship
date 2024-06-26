@@ -27,7 +27,6 @@ class AdminAuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors()->toJson(), 400);
         }
-
         $admin = new Admin();
         $admin->name = $request->name;
         $admin->email = $request->email;

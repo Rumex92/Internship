@@ -87,9 +87,12 @@ export default {
 
 <style scoped>
 
-
+* {
+ 
+  font-family: 'Quicksand', sans-serif;
+}
 .footer {
-    background-color: #a1af95;
+    background-color: #a6b7aa;
     background-size: cover;
 }
 

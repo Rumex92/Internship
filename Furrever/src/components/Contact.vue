@@ -21,7 +21,7 @@
     <div class="container">
         <div class="text-center mx-auto mb-5"  style="max-width: 600px; visibility: visible; ">
             <h4 class="section-title"style="color:#d8ac73;">Contact Us</h4>
-            <h1 class="display-5 mb-4" style="color:#A1AF95;">If You Have Any Query, Please Feel Free to Contact Us</h1>
+            <h1 class="display-5 mb-4" style="color:#a6b7aa;">If You Have Any Query, Please Feel Free to Contact Us</h1>
         </div>
         <div class="row g-5">
             <div class="col-lg-6"  style="visibility: visible; ">
@@ -150,7 +150,7 @@ div {
     flex-shrink: 0 !important;
 }
 .bg-light {
-    background-color: #A1AF95 !important;
+    background-color: #a6b7aa !important;
     color:#fff;
 }
 .p-4 {

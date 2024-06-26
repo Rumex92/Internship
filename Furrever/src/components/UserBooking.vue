@@ -20,6 +20,7 @@
           </div>
         </div>
       </div>
+          <router-link to="/profile" class="btn" style="margin-right:10px;background-color:#d8ac73;color:#fff;">Back to Profile</router-link>
     </div>
   </div>
 </template>
@@ -87,7 +88,7 @@ export default {
 <style>
 .card-container {
   width: 100%;
-  max-width: 500px; /* Adjust the max-width to your preference */
+  max-width: 500px; 
 }
 
 .card {

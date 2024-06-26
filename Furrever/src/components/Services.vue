@@ -66,7 +66,7 @@
         <div class="row gy-4 justify-content-center" data-aos="zoom-in">
           <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
             <div class="card bg-custom px-4 custom-card-spacing">
-              <h4 class="py-2">{{ service.service_name }}</h4>
+              <h4 class="py-2" style="margin-top:30px;">{{ service.service_name }}</h4>
               <ul class="py-3 list-unstyled">
                 <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3">
                   <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
@@ -136,7 +136,7 @@ export default {
 }
 
 .bg-custom {
-    background-color: #c4c8b2; /* Set custom background color */
+    background-color: #a6b7aa; /* Set custom background color */
 }
 .page-header {
     background: url('../image/header.jpg') no-repeat center center;
