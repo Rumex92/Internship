@@ -90,7 +90,7 @@
 // Admin account management routes
 Route::group(['prefix' => 'admin/account', 'middleware' => 'auth:admin-api'], function () {
     Route::put('password', [AdminAuthController::class, 'changePassword']);
-    Route::delete('/', [AdminAuthController::class, 'deleteAccount']);
+    //Route::delete('/', [AdminAuthController::class, 'deleteAccount']);
     Route::get('profile', [AdminAuthController::class, 'profile'])->name('admin.profile'); // Removed the leading slash here
 });
 
@@ -112,3 +112,10 @@ Route::middleware('auth:api')->group(function () {
 
 // Route for searching bookings
 Route::get('/admin/bookings/search', [AdminBookingController::class, 'search']);
+
+Route::delete('/admin/account/{email}', [AdminAuthController::class, 'deleteAccount']);
+
+
+Route::middleware('auth:api')->group(function () {
+    Route::delete('/user/account', [AuthController::class, 'deleteAccount']);
+});

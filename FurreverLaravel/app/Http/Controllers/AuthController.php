@@ -170,7 +170,21 @@ class AuthController extends Controller
         $users = User::all(); // Example: Fetch all users
         return response()->json($users);
     }
+    // In your UserAuthController or relevant controller
+public function deleteAccount(Request $request)
+{
+    $user = Auth::guard('api')->user();
 
+    if (!$user) {
+        return response()->json(['error' => 'User not authenticated'], 401);
+    }
+
+    $user->delete();
+
+    return response()->json(['message' => 'User account deleted successfully'], 200);
+}
+
+    
     /**
      * Get a specific user by ID (for admins).
      *

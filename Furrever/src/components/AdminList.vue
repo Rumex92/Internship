@@ -10,29 +10,33 @@
       <router-link :to="{ name: 'AdminAccount' }">Change Password</router-link>
       <a class="logoutbtn" @click="logout">Logout</a>
     </div>
-      <h2>Admin Dashboard - Categories</h2>
+    <h2>Admin Dashboard - Admin List</h2>
     <span class="nav" @click="openNav">&#9776; open</span>
     <div id="main">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="admin in admins" :key="admin.id">
-          <td>{{ admin.name }}</td>
-          <td>{{ admin.email }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="pagination">
-      <button class="pagination-button" @click="prevPage" :disabled="currentPage === 1">Previous</button>
-      <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
-      <button class="pagination-button" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th> <!-- Add a new column for delete action -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="admin in paginatedAdmins" :key="admin.id">
+            <td>{{ admin.name }}</td>
+            <td>{{ admin.email }}</td>
+            <td>
+              <button @click="deleteAdmin(admin.email)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button class="pagination-button" @click="prevPage" :disabled="currentPage === 1">Previous</button>
+        <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="pagination-button" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -45,7 +49,7 @@ export default {
     return {
       admins: [],
       currentPage: 1,
-      itemsPerPage: 10 // Define itemsPerPage
+      itemsPerPage: 10, // Define itemsPerPage
     };
   },
   computed: {
@@ -62,29 +66,29 @@ export default {
     this.fetchAdmins();
   },
   methods: {
-     openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
+    openNav() {
+      document.getElementById('mySidenav').style.width = '250px';
     },
     closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById('mySidenav').style.width = '0';
     },
     async logout() {
-  const adminAuthStore = useAdminAuthStore();
-  
-  // Display a confirmation dialog
-  const confirmation = window.confirm("Are you sure you want to log out?");
-  
-  if (confirmation) {
-    try {
-      await adminAuthStore.logout();
-      this.$router.push('/admin/auth/login'); 
-    } catch (error) {
-      console.error('Logout failed:', error.message || 'Unknown error');
-    }
-  } else {
-    console.log('Logout canceled by the user');
-  }
-},
+      const adminAuthStore = useAdminAuthStore();
+
+      // Display a confirmation dialog
+      const confirmation = window.confirm('Are you sure you want to log out?');
+
+      if (confirmation) {
+        try {
+          await adminAuthStore.logout();
+          this.$router.push('/admin/auth/login');
+        } catch (error) {
+          console.error('Logout failed:', error.message || 'Unknown error');
+        }
+      } else {
+        console.log('Logout canceled by the user');
+      }
+    },
     async fetchAdmins() {
       try {
         const adminAuthStore = useAdminAuthStore();
@@ -96,8 +100,8 @@ export default {
 
         const config = {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         };
 
         const response = await axios.get('http://localhost:8000/api/admins', config);
@@ -106,16 +110,40 @@ export default {
         console.error('Error fetching admins:', error);
       }
     },
-   
+    async deleteAdmin(email) {
+      try {
+        const adminAuthStore = useAdminAuthStore();
+        const token = adminAuthStore.token;
+
+        if (!token) {
+          throw new Error('Token not available');
+        }
+
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+
+        const response = await axios.delete(`http://localhost:8000/api/admin/account/${email}`, config);
+        console.log('Admin deleted:', response.data.message);
+
+        // Optionally, update the list of admins after deletion
+        this.fetchAdmins();
+      } catch (error) {
+        console.error('Delete request failed:', error.message);
+      }
+    },
     prevPage() {
       if (this.currentPage > 1) this.currentPage--;
     },
     nextPage() {
       if (this.currentPage < this.totalPages) this.currentPage++;
-    }
-  }
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 .nav

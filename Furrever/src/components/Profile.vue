@@ -10,9 +10,10 @@
         <span class="email">{{ user.email }}</span>
         <router-link to="/profile/edit" class="btn btn-primary mt-3">Edit Profile</router-link>
         <div class="button-group">
-         <router-link to="/profile/booking" class="btn btn-outline-dark mt-2">View Bookings</router-link>
+          <router-link to="/profile/booking" class="btn btn-outline-dark mt-2">View Bookings</router-link>
           <button class="btn btn-outline-dark mt-2" @click="editProfile">Change Password</button>
           <button class="btn btn-outline-danger mt-2" @click="logout">Log Out</button>
+          <button class="btn btn-outline-danger mt-2" @click="deleteAccount">Delete Account</button> <!-- Delete Account Button -->
         </div>
       </div>
     </div>
@@ -70,6 +71,28 @@ export default {
       } else {
         // Do nothing if user cancels the logout
         console.log('Logout canceled');
+      }
+    },
+    async deleteAccount() {
+      if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+        try {
+          const response = await axios.delete(`http://localhost:8000/api/user/account`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          });
+          console.log('Account deleted:', response.data);
+
+          // Clear the token and redirect to the home page or login page
+          const authStore = useAuthStore();
+          authStore.clearToken(); // Clear token from store
+          this.$router.push({ name: 'Home' }); // Adjust the route name as per your setup
+        } catch (error) {
+          console.error('Delete request failed:', error);
+          alert('Failed to delete account. Please try again.');
+        }
+      } else {
+        console.log('Account deletion canceled');
       }
     }
   }

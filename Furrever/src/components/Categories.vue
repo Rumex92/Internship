@@ -11,7 +11,7 @@
             <li class="breadcrumb-item">
               <router-link class="text-white" style="text-decoration:none;"to="#">Pages</router-link>
             </li>
-            <li class="breadcrumb-item" style="color:#d8ac73;" aria-current="page">
+            <li class="breadcrumb-item"  aria-current="page">
               Services
             </li>
           </ol>
@@ -21,7 +21,7 @@
     <section class="services d-flex align-items-center py-5" id="services">
       <div class="container text-light">
         <div class="text-center text-black">
-          <p>OUR SERVICES</p>
+          <p style="color:#d8ac73">OUR SERVICES</p>
           <h2 class="py-2">Explore unlimited possibilities</h2>
           <p class="para-light" style="margin-bottom:30px;margin-top:30px;">Welcome to our Services page! Whether you have a dog or a cat, we offer a range of specialized services to meet your pet's unique needs. Please select the type of pet to explore the services we provide.</p>
         </div>

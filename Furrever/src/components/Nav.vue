@@ -56,10 +56,10 @@ export default {
     handleReservationClick() {
       if (this.authStore.isAuthenticated) {
         // If user is authenticated, navigate to the booking form
-        this.$router.push({ name: 'BookService' }); // Adjust the route name as per your setup
+        this.$router.push({ name: 'BookService' }); 
       } else {
         // If user is not authenticated, navigate to the login page
-        this.$router.push({ name: 'Login' }); // Adjust the route name as per your setup
+        this.$router.push({ name: 'Login' }); 
       }
     }
   }

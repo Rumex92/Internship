@@ -11,7 +11,7 @@
             <li class="breadcrumb-item">
               <router-link class="text-white" style="text-decoration:none;"to="#">Pages</router-link>
             </li>
-           <li class="breadcrumb-item " style="color:#d8ac73;"aria-current="page">
+           <li class="breadcrumb-item " aria-current="page">
               Service
             </li>
           </ol>
@@ -24,26 +24,12 @@
         <div class="row g-5">
           <div class="col-lg-6">
             <div class="h-100">
-              <p class="text-uppercase mb-2" style="color:#d8ac73">About Us</p>
-              <h1 class="display-6 mb-4">We Bake Every Item From The Core Of Our Hearts</h1>
-              <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-              <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-              <div class="row g-2 mb-4">
-                <div class="col-sm-6">
-                  <i class="fa fa-check text-primary me-2"></i>Quality Products
-                </div>
-                <div class="col-sm-6">
-                  <i class="fa fa-check text-primary me-2"></i>Custom Products
-                </div>
-                <div class="col-sm-6">
-                  <i class="fa fa-check text-primary me-2"></i>Online Order
-                </div>
-                <div class="col-sm-6">
-                  <i class="fa fa-check text-primary me-2"></i>Home Delivery
-                </div>
+              <h2 class="display-8 mb-4">Our Services</h2>
+              <p>At Furrever, we offer a range of high-quality services to meet the needs of your beloved pets. Our experienced and compassionate team is dedicated to providing the best care possible, ensuring your pets are happy, healthy, and well-cared for.</p>
+                 <h2 class="display-8 mb-4">Payment Information</h2>
+              <p>We currently accept payments in person only. Please note that we do not offer online payment options at this time. We accept cash, credit, and debit cards at our facility. We appreciate your understanding and cooperation as we work to provide the best service for you and your pets.</p>
+              <router-link to="/book-service"  class="btn btn-primary py-3 px-5 " style="border-radius: 10px; background-color:#a6b7aa;color:#fff;">Make a Reservation</router-link>
               </div>
-              <a class="btn rounded-pill py-3 px-5" style="background-color:#d8ac73" href="">Read More</a>
-            </div>
           </div>
 
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
@@ -61,23 +47,29 @@
       </div>
     </div>
 
-    <div class="container-xl py-6">
-      <div class="container">
-        <div class="row gy-4 justify-content-center" data-aos="zoom-in">
-          <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
-            <div class="card bg-custom px-4 custom-card-spacing">
-              <h4 class="py-2" style="margin-top:30px;">{{ service.service_name }}</h4>
-              <ul class="py-3 list-unstyled">
-                <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3">
-                  <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
-                </li>
-              </ul>
-              <h4 class="py-3">${{ service.price }}</h4>
+   <div class="container-xl py-6">
+    <div class="container">
+      <div class="row gy-4 justify-content-center" data-aos="zoom-in">
+        <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
+          <div class="card bg-custom px-4 custom-card-spacing shadow-sm h-100">
+            <div class="card-body d-flex flex-column">
+              <div class="mb-auto">
+                <h4 class="card-title py-2">{{ service.service_name }}</h4>
+                <ul class="py-3 list-unstyled">
+                  <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3">
+                    <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
+                  </li>
+                </ul>
+              </div>
+              <div class="text-end">
+                <h4 class="py-3">${{ service.price }}</h4>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -156,6 +148,16 @@ export default {
     z-index: -1;
 }
 
+
+.btn-primary {
+  background-color: #a6b7aa;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8e9c81;
+}
 .img-twice {
     position: relative;
 }

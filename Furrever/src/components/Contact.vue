@@ -10,7 +10,7 @@
             <li class="breadcrumb-item">
               <a class="text-white"style="text-decoration:none;" href="#">Pages</a>
             </li>
-            <li class="breadcrumb-item " style="color:#d8ac73;"aria-current="page">
+            <li class="breadcrumb-item " aria-current="page">
               Contact
             </li>
           </ol>

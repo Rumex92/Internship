@@ -29,7 +29,7 @@ import AdminBookings from '@/components/AdminBookings.vue';
 import AdminAccount from '@/components/AdminAccount.vue';
 import AdminList from '@/components/AdminList.vue';
 import UserList from '@/components/UserList.vue';
-
+import AdminAccountDelete from '@/components/AdminAccountDelete.vue';
 
 import Reviews from '@/components/Reviews.vue'; // Import Reviews component
 
@@ -193,6 +193,14 @@ const routes = [
         path: '/admin/account',
         name: 'AdminAccount',
         component: AdminAccount,
+        meta: {
+            requiresAdminAuth: true
+        },
+    },
+    {
+        path: '/admin/delete',
+        name: 'AdminAccountDelete',
+        component: AdminAccountDelete,
         meta: {
             requiresAdminAuth: true
         },

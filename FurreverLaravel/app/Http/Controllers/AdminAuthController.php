@@ -147,26 +147,35 @@ class AdminAuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function deleteAccount(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+      
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
-
-        $admin = Auth::guard('admin-api')->user();
-
-        if (!password_verify($request->password, $admin->password)) {
-            return response()->json(['error' => 'Incorrect password'], 401);
-        }
-
-        $admin->delete();
-
-        return response()->json(['message' => 'Admin account deleted successfully'], 200);
+    if ($validator->fails()) {
+        return response()->json($validator->errors(), 422);
     }
+
+    $admin = Auth::guard('admin-api')->user();
+
+    // Check if the requesting admin is authorized to delete
+    if ($admin->email !== 'admin1@gmail.com') {
+        return response()->json(['error' => 'Unauthorized to delete admin accounts'], 403);
+    }
+
+   
+
+    $adminToDelete = Admin::where('email', $request->email)->first();
+
+    if (!$adminToDelete) {
+        return response()->json(['error' => 'Admin account not found'], 404);
+    }
+
+    $adminToDelete->delete();
+
+    return response()->json(['message' => 'Admin account deleted successfully'], 200);
+}
+
     // Other methods omitted for brevity...
 
     /**
