@@ -438,9 +438,9 @@ a:not([href]):not([class]),a:not([href]):not([class]):hover {
 }
 
 .btn-primary {
-    color: #000;
+    color: #fff;
     background-color: #d8ac73;
-    border-color: #d8ac73
+    border-color: #d8ac73;
 }
 
 .btn-primary:hover {

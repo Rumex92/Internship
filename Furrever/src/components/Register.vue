@@ -127,7 +127,7 @@ export default defineComponent({
           const isSuccess = await authStore.register(name.value, email.value, password.value, confirmPassword.value);
 
           if (isSuccess) {
-            router.push({ name: 'Home' });
+            router.push({ name: 'Login' });
             resetForm();
           }
         }

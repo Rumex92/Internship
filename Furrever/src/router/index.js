@@ -29,9 +29,7 @@ import AdminBookings from '@/components/AdminBookings.vue';
 import AdminAccount from '@/components/AdminAccount.vue';
 import AdminList from '@/components/AdminList.vue';
 import UserList from '@/components/UserList.vue';
-import AdminAccountDelete from '@/components/AdminAccountDelete.vue';
-
-import Reviews from '@/components/Reviews.vue'; // Import Reviews component
+import Reviews from '@/components/Reviews.vue'; 
 
 const routes = [
     {
@@ -64,14 +62,14 @@ const routes = [
                 path: '/services/:categoryId',
                 name: 'Services',
                 component: Services,
-                props: true // Pass route params as props to Services component
+                props: true 
             },
             {
                 path: '/book-service',
                 name: 'BookService',
                 component: BookingForm,
                 meta: {
-                    requiresAuth: true // Route requires authentication
+                    requiresAuth: true 
                 }
             },
             {
@@ -79,23 +77,23 @@ const routes = [
                 name: 'Profile',
                 component: Profile,
                 meta: {
-                    requiresAuth: true // Example: Profile route requires authentication
+                    requiresAuth: true 
                 }
             },
             {
                 path: '/profile/edit',
-                name: 'ProfileEdit', // New route for ProfileEdit
+                name: 'ProfileEdit', 
                 component: ProfileEdit,
                 meta: {
-                    requiresAuth: true // Example: Profile edit route requires authentication
+                    requiresAuth: true 
                 }
             },
             {
                 path: '/profile/booking',
-                name: 'UserBooking', // New route for ProfileEdit
+                name: 'UserBooking', 
                 component: UserBooking,
                 meta: {
-                    requiresAuth: true // Example: Profile edit route requires authentication
+                    requiresAuth: true 
                 }
             },
             {
@@ -103,15 +101,15 @@ const routes = [
                 name: 'ChangePassword',
                 component: ChangePassword,
                 meta: {
-                    requiresAuth: true // Example: Profile route requires authentication
+                    requiresAuth: true 
                 }
             },
             {
-                path: '/reviews', // Route for Reviews.vue
+                path: '/reviews', 
                 name: 'Reviews',
                 component: Reviews,
                 meta: {
-                    requiresAuth: true // Example: Reviews route requires authentication
+                    requiresAuth: true 
                 }
             }
         ]
@@ -156,6 +154,7 @@ const routes = [
                 path: 'register',
                 name: 'AdminRegister',
                 component: AdminRegister,
+                
             },
         ]
     },
@@ -186,7 +185,7 @@ const routes = [
         name: 'AdminBookings',
         component: AdminBookings,
         meta: {
-          requiresAdminAuth: true, // Ensure this route is protected
+          requiresAdminAuth: true, 
         }
     },
     {
@@ -197,14 +196,7 @@ const routes = [
             requiresAdminAuth: true
         },
     },
-    {
-        path: '/admin/delete',
-        name: 'AdminAccountDelete',
-        component: AdminAccountDelete,
-        meta: {
-            requiresAdminAuth: true
-        },
-    },
+  
     {
         path: '/admin/list',
         name: 'AdminList',

@@ -37,19 +37,19 @@
                             <img class="img-fluid bg-light rounded p-1" src="../image/catside.jpg" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="../image/catside.jpg" alt="Image">
+                            <img class="img-fluid bg-light rounded p-1" src="../image/2.jpg" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="../image/catside.jpg" alt="Image">
+                            <img class="img-fluid bg-light rounded p-1" src="../image/3.jpg" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="../image/catside.jpg" alt="Image">
+                            <img class="img-fluid bg-light rounded p-1" src="../image/4.jpg" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="../image/catside.jpg" alt="Image">
+                            <img class="img-fluid bg-light rounded p-1" src="../image/5.jpg" alt="Image">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light rounded p-1" src="../image/catside.jpg" alt="Image">
+                            <img class="img-fluid bg-light rounded p-1" src="../image/6.jpg" alt="Image">
                         </div>
                     </div>
                 </div>

@@ -110,30 +110,33 @@ export default {
         console.error('Error fetching admins:', error);
       }
     },
-    async deleteAdmin(email) {
-      try {
-        const adminAuthStore = useAdminAuthStore();
-        const token = adminAuthStore.token;
+   async deleteAdmin(email) {
+  try {
+    const adminAuthStore = useAdminAuthStore();
+    const token = adminAuthStore.token;
 
-        if (!token) {
-          throw new Error('Token not available');
-        }
+    if (!token) {
+      throw new Error('Token not available');
+    }
 
-        const config = {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-        const response = await axios.delete(`http://localhost:8000/api/admin/account/${email}`, config);
-        console.log('Admin deleted:', response.data.message);
+    const response = await axios.delete(`http://localhost:8000/api/admin/account/${email}`, config);
+    console.log('Admin deleted:', response.data.message);
 
-        // Optionally, update the list of admins after deletion
-        this.fetchAdmins();
-      } catch (error) {
-        console.error('Delete request failed:', error.message);
-      }
-    },
+    // Optionally, update the list of admins after deletion
+    this.fetchAdmins();
+  } catch (error) {
+    console.error('Delete request failed:', error.message);
+
+    // Display error message to the user
+    alert(`Failed to delete admin account`);
+  }
+},
     prevPage() {
       if (this.currentPage > 1) this.currentPage--;
     },

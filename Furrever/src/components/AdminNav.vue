@@ -4,9 +4,7 @@
       <img src="../image/Furr.png" style="height: 50px; width: 70px; margin-left:80px;">
     </router-link>
 
-    <div class="navbar-nav ms-auto" style="margin-right:80px;">
-      <router-link class="nav-item nav-link fs-5 mx-3" :to="{ name: 'AdminRegister' }">Register New Admin Account</router-link>
-    </div>
+    
   </nav>
 </template>
 

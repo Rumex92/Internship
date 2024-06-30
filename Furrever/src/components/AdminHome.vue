@@ -19,7 +19,7 @@
       <table class="crud-table">
         <thead>
           <tr>
-            <th>ID</th>
+           
             <th>Service Name</th>
             <th>Description</th>
             <th>Category</th>
@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr v-for="service in paginatedServices" :key="service.id">
-            <td>{{ service.id }}</td>
+         
             <td>{{ service.service_name }}</td>
             <td>{{ service.description }}</td>
             <td>{{ getCategoryName(service.category_id) }}</td>

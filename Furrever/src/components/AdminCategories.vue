@@ -17,14 +17,14 @@
       <table class="crud-table">
         <thead>
           <tr>
-            <th>ID</th>
+         
             <th>Category Name</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="category in paginatedCategories" :key="category.id">
-            <td>{{ category.id }}</td>
+        
             <td>{{ category.category_name }}</td>
             <td>
               <button class="btn btn-warning" style="margin-right: 10px;" @click="editCategory(category.id)">Edit</button>

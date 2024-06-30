@@ -18,14 +18,14 @@
       </div>
       <div class="mb-3">
         <label for="appointmentDate" class="form-label">Appointment Date</label>
-        <input v-model="bookingData.appointment_date" type="datetime-local" id="appointmentDate" class="form-control" required>
+        <input v-model="bookingData.appointment_date" type="datetime-local" id="appointmentDate" :min="minDateTime" class="form-control" required>
       </div>
       <div class="mb-3">
         <label for="note" class="form-label">Note (optional)</label>
         <textarea v-model="bookingData.note" id="note" class="form-control"></textarea>
       </div>
-      <div class=" justify-content-between">
-        <button type="button" @click="goBackHome" class="btn " style="margin-right:10px;background-color:#d8ac73;">Back to Home</button>
+      <div class="justify-content-between">
+        <button type="button" @click="goBackHome" class="btn" style="margin-right:10px;background-color:#d8ac73;">Back to Home</button>
         <button type="submit" class="btn" style="background-color:#a6b7aa;">Submit Booking</button>
       </div>
     </form>
@@ -53,6 +53,17 @@ export default {
       successMessage: '',
       errorMessage: ''
     };
+  },
+  computed: {
+    minDateTime() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
   },
   mounted() {
     this.fetchUserProfile();
@@ -107,11 +118,21 @@ export default {
         console.log('Booking created successfully:', response.data);
         this.successMessage = 'Booking created successfully!';
         this.errorMessage = '';
+        this.resetForm(); // Clear the form after successful submission
       } catch (error) {
         console.error('Error creating booking:', error);
         this.errorMessage = error.response ? error.response.data.message : 'Failed to create booking.';
         this.successMessage = '';
       }
+    },
+    resetForm() {
+      this.bookingData = {
+        service_id: null,
+        name: '',
+        phone_number: '',
+        appointment_date: '',
+        note: ''
+      };
     },
     formatAppointmentDate(dateString) {
       const date = new Date(dateString);
@@ -124,6 +145,8 @@ export default {
   }
 };
 </script>
+
+
 
 
 
