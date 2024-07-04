@@ -38,31 +38,6 @@ export const useAdminAuthStore = defineStore('adminAuth', {
       }
     },
 
-    async register(name, email, password, confirmPassword) {
-      try {
-        const response = await axios.post('http://localhost:8000/api/admin/register', {
-          name: name,
-          email: email,
-          password: password,
-          password_confirmation: confirmPassword,
-        });
-
-        if (response.status === 201) {
-          const data = response.data;
-          console.log('Admin registration successful:', data);
-          return true;
-        } else {
-          console.error('Unexpected response status:', response.status);
-          return false;
-        }
-      } catch (error) {
-        if (error.response && error.response.status === 409) {
-            throw new Error('Email already exists');
-        }
-        throw error;
-
-    }
-    },
     
     async logout() {
       try {

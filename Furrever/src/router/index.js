@@ -13,6 +13,7 @@ import ChangePassword from '@/components/ChangePassword.vue';
 import Profile from '@/components/Profile.vue';
 import ProfileEdit from '@/components/ProfileEdit.vue';
 import UserBooking from '@/components/UserBooking.vue';
+import Booking from '@/components/Booking.vue';
 
 import Auth from '@/layout/Auth.vue';
 import Register from '@/components/Register.vue';
@@ -21,13 +22,13 @@ import Login from '@/components/Login.vue';
 import AdminLayout from '@/layout/AdminLayout.vue';
 import AdminAuth from '@/layout/AdminAuth.vue';
 import AdminLogin from '@/components/AdminLogin.vue';
-import AdminRegister from '@/components/AdminRegister.vue';
+
 import AdminHome from '@/components/AdminHome.vue';
 import AdminNav from '@/components/AdminNav.vue';
 import AdminCategories from '@/components/AdminCategories.vue';
 import AdminBookings from '@/components/AdminBookings.vue';
 import AdminAccount from '@/components/AdminAccount.vue';
-import AdminList from '@/components/AdminList.vue';
+
 import UserList from '@/components/UserList.vue';
 import Reviews from '@/components/Reviews.vue'; 
 
@@ -52,6 +53,11 @@ const routes = [
                 path: '/contact',
                 name: 'Contact',
                 component: Contact
+            },
+            {
+                path: '/booking',
+                name: 'Booking',
+                component: Booking
             },
             {
                 path: '/categories',
@@ -150,12 +156,7 @@ const routes = [
                 name: 'AdminLogin',
                 component: AdminLogin,
             },
-            {
-                path: 'register',
-                name: 'AdminRegister',
-                component: AdminRegister,
-                
-            },
+           
         ]
     },
     {
@@ -197,14 +198,7 @@ const routes = [
         },
     },
   
-    {
-        path: '/admin/list',
-        name: 'AdminList',
-        component: AdminList,
-        meta: {
-            requiresAdminAuth: true
-        },
-    },
+   
     {
         path: '/admin/userlist',
         name: 'UserList',

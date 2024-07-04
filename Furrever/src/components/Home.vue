@@ -6,7 +6,7 @@
     </svg>
     
    <div class="p-lg-5 pe-lg-0">
-        <div class="section-title text-start">
+        <div class="section-title text-start fade-in-text">
             <h3 class="display-3 mb-4"style="padding-top:60px;">Your Pet’s Favorite Place to Play and Stay</h3>
             <h1 class="display-3 mb-4">Welcome to Furrever</h1>
          </div>
@@ -20,75 +20,105 @@
   </div>
 </div>
 
-<div class="offers">
-  <h1 class="title">Services We Offer</h1>
-</div>
-
-
 <div class="about-container">
-<div class="container-fluid featurs py-3">
-    <div class="container py-5">
-        <div class="row g-5 justify-content-center">
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded  p-4">
-                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                       <font-awesome-icon :icon="['fas', 'shower']" class="fa-3x icon"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#fff;">Grooming</h5>
-                        <p class="mb-0" style="color:#fff;">Keep Your Pet Looking and Feeling Great</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded  p-4">
-                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                       <font-awesome-icon :icon="['fas', 'dog']" class="fa-3x icon"></font-awesome-icon>
-                    </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#fff;">Boarding</h5>
-                        <p class="mb-0" style="color:#fff;">Comfortable and Secure Overnight Stays</p>
+    <div class="container-fluid featurs py-3">
+        <div class="container py-5 offers">
+        <h1 class="title">Services We Offer</h1>
+            <div class="row g-5 justify-content-center">
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="featurs-item text-center rounded p-4">
+                        <div class="icon-container mb-4 mx-auto">
+                            <img src="../image/grooming.jpg" class="icon-image" alt="Grooming Image">
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5 style="color:#fff;">Grooming</h5>
+                            <p class="mb-0" style="color:#fff;">Keep Your Pet Looking and Feeling Great</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-6 col-lg-3">
-                <div class="featurs-item text-center rounded  p-4">
-                    <div class="featurs-icon btn-square rounded-circle  mb-5 mx-auto">
-                        <font-awesome-icon :icon="['fas', 'cat']" class="fa-3x icon"></font-awesome-icon>
+                
+                <div class="col-md-6 col-lg-3 fade-in-1">
+                    <div class="featurs-item text-center rounded p-4">
+                        <div class="icon-container mb-5 mx-auto">
+                            <img src="../image/sleeping.jpg" class="icon-image" alt="Boarding Image">
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5 style="color:#fff;">Boarding</h5>
+                            <p class="mb-0" style="color:#fff;">Comfortable and Secure Overnight Stays</p>
+                        </div>
                     </div>
-                    <div class="featurs-content text-center">
-                        <h5 style="color:#fff;">Day Care</h5>
-                        <p class="mb-0" style="color:#fff;">Fun and Engaging Daytime Activities</p>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 fade-in-2">
+                    <div class="featurs-item text-center rounded p-4">
+                        <div class="icon-container mb-5 mx-auto">
+                            <img src="../image/running.jpg" class="icon-image" alt="Day Care Image">
+                        </div>
+                        <div class="featurs-content text-center">
+                            <h5 style="color:#fff;">Day Care</h5>
+                            <p class="mb-0" style="color:#fff;">Fun and Engaging Daytime Activities</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
+
     <div class="container" style="height:650px; padding-top:100px;color:#fff;">
          <div class="row g-3">
             <div class="row img-twice position-relative h-100" style="margin-left:55px;">
                   <!-- Color Layer Between Images -->
-             <div class="color-layer-between">
-          <h2 class="title" style="padding-top:40px; margin:20px;">About Us</h2>
-          <p class="description" style=" margin:20px;">Welcome to Furrever, where your pet's happiness and well-being are our top priorities. Founded in 2020, our mission is to provide a safe, nurturing, and stimulating environment for your beloved pets. Whether you need daycare, grooming, or boarding services, we are dedicated to offering the highest quality care tailored to meet the unique needs of each pet.</p>
-           <router-link to="/about" class="btn btn-primary py-3 px-5" style="border-radius: 10px; margin-left:20px; color:#fff;">Explore More</router-link>
-        </div>
+                   <div class="color-layer-between fade-in-4">
+                     <h2 class="title" style="padding-top:40px; margin:20px;">About Us</h2>
+                     <p class="description" style=" margin:20px;">Welcome to Furrever, where your pet's happiness and well-being are our top priorities. Founded in 2020, our mission is to provide a safe, nurturing, and stimulating environment for your beloved pets. Whether you need daycare, grooming, or boarding services, we are dedicated to offering the highest quality care tailored to meet the unique needs of each pet.</p>
+                     <router-link to="/about" class="btn btn-primary py-3 px-5" style="border-radius: 10px; margin-left:20px; color:#fff;">Explore More</router-link>
+                   </div>
         
                
                 <div class="col-6">
-                 <img class="img-fluid rounded zoom-on-hover" src="../image/Doggos.jpg" alt="">
+                 <img class="img-fluid rounded zoom-on-hover fade-in-3" src="../image/Doggos.jpg" alt="">
                 </div>
            </div>
         </div>
     </div>
 
-<div class="reasons">
-    <h2>Our Commitment to Your Pets</h2>
-    <p> " At Furrever, we are dedicated to providing exceptional care for your beloved pets. Our experienced staff, top-notch facilities, and personalized attention ensure that every pet feels safe, loved, and entertained. Trust us to provide a home away from home where your pets can thrive. "</p>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="reasons">
+                <div class="fade-in-5">
+                    <h2>Our Commitment to Your Pets</h2>
+                    <p>"At Furrever, we are dedicated to providing exceptional care for your beloved pets. Our experienced staff, top-notch facilities, and personalized attention ensure that every pet feels safe, loved, and entertained. Trust us to provide a home away from home where your pets can thrive."</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="reasons">
+                <div class="fade-in-5">
+                    <h2>Why Choose Us?</h2>
+                    <p>"Choose Furrever because we understand pets like no one else. Our commitment to quality care, safety, and happiness is unmatched. Let your pets experience the difference with Furrever."</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="reasons">
+                <div class="fade-in-5">
+                    <h2>What Makes Us Different</h2>
+                    <p>"What sets Furrever apart? It's our passion for pets, our dedicated team, and our commitment to excellence in pet care. Discover why Furrever is the perfect choice for your pets' needs."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 
@@ -96,7 +126,7 @@
   <div class="container-fluid overflow-hidden my-5 px-lg-0" >
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
-            <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
+            <div class="col-lg-6 feature-text py-5">
                 <div class="p-lg-5 ps-lg-0">
                     <div class="section-title text-start">
                         <h1 class="display-5 mb-4"style="color:#a6b7aa;">Why Choose Us</h1>
@@ -151,7 +181,7 @@
                 </div>
             </div>
             <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
-                <div class="position-relative h-100">
+                <div class="position-relative h-100 fade-in">
                     <img class="position-absolute img-fluid w-100 h-100"  src="../image/puppy.jpg" style="object-fit: cover; border-radius: 15px;" alt="">
                 </div>
             </div>
@@ -169,16 +199,33 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+
 export default {
-    components: {
-        FontAwesomeIcon,
-    },
-    
+  components: {
+    FontAwesomeIcon,
+   
+  },
+  mounted() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.fade-in,.fade-in-1,.fade-in-2,.fade-in-3,.fade-in-4,.fade-in-5,.fade-in-text').forEach(element => {
+      observer.observe(element);
+    });
+  },
+  created() {
+    library.add(fas);
+  },
 };
-library.add(fas); 
-
 </script>
-
 
 <style scoped>
 
@@ -192,6 +239,81 @@ library.add(fas);
     box-sizing: border-box
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(80px); 
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+.fade-in-1 {
+  opacity: 0;
+  transform: translateY(80px); 
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in-1.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+.fade-in-2 {
+  opacity: 0;
+  transform: translateY(80px); 
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.fade-in-2.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+.fade-in-3 {
+   opacity: 0;
+  transform: translateX(-100px); /* Start slightly to the left of their final position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-3.visible {
+ opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-4 {
+  opacity: 0;
+  transform: translateY(100px); 
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.fade-in-4.visible {
+  opacity: 1;
+transform: translateY(-50%);
+  
+}
+.fade-in-5 {
+  opacity: 0;
+  transform: scale(0.8); /* Initial scale for the zoom-in effect */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition for both opacity and transform */
+}
+
+.fade-in-5.visible {
+  opacity: 1;
+  transform: scale(1); /* Final scale (original size) */
+}
+
+.fade-in-text {
+  opacity: 0;
+  transform: translateX(100px); /* Start off 100px to the right */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+
+.fade-in-text.visible {
+  opacity: 1;
+  transform: translateX(0); /* Move to original position */
+}
+
 @media (prefers-reduced-motion: no-preference) {
     :root {
         scroll-behavior: smooth
@@ -202,7 +324,29 @@ library.add(fas);
     width: 120px;
     height: 120px;
 }
+.icon-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.icon-image {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    vertical-align: middle;
+}
+
+.icon-image.landscape {
+    width: 100%;
+    height: auto;
+}
 .btn-square,
 .btn-sm-square,
 .btn-md-square,
@@ -227,17 +371,17 @@ library.add(fas);
     border-radius: 10px !important;
 }
 .color-layer-between {
-    position: absolute;
-    top: 52%;
-    
-    left: 600px;
-    width: 45%;
-    height: 370px; 
-    background-color:#a6b7aa; 
-    transform: translateY(-50%);
-    z-index: 1; 
-    border-radius:10px;
+  position: absolute;
+  top: 52%;
+  left: 600px; 
+  width: 45%;
+  height: 370px;
+  background-color: #a6b7aa;
+  z-index: 1;
+  border-radius: 10px;
+  transform: translateY(-50%);
 }
+
 
 .img-twice .col-6 img {
     position: relative;
@@ -253,10 +397,14 @@ library.add(fas);
     align-items: center;
     justify-content: center;
     min-height: 300px;
-    background: #f5edd6;
+  
     text-align: center;
     padding: 20px;
     font-size: 1.2em;
+         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../image/twodogs.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
 }
 .reasons h2 {
     font-size: 2em;
@@ -278,7 +426,7 @@ library.add(fas);
 
 
 .wave-header {
-  min-height: 80%;
+  min-height: 90%;
   width: 100%;
   background-image: url('../image/twodogs.jpg');
   background-size: cover;
@@ -570,7 +718,7 @@ a:not([href]):not([class]),a:not([href]):not([class]):hover {
 }
 .offers{
     text-align:center;
-    color:#E48951;
+    color:#fff;
     margin-bottom:20px;
 }
 .featurs .featurs-item .featurs-icon {

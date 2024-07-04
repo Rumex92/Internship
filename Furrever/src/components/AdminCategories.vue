@@ -5,7 +5,6 @@
       <router-link to="/admin/home">Services</router-link>
       <router-link to="/admin/categories">Service Categories</router-link>
       <router-link to="/admin/bookings">Bookings</router-link>
-      <router-link :to="{ name: 'AdminList' }">Admin List</router-link>
       <router-link :to="{ name: 'UserList' }">User List</router-link>
       <router-link :to="{ name: 'AdminAccount' }">Change Password</router-link>
       <a class="logoutbtn" @click="logout">Logout</a>

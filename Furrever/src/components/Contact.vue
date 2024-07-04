@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid page-header py-5 mb-5 wow fadeIn"  style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
       <div class="container text-center py-5">
-        <h1 class="display-4 text-white  slideInDown mb-4">Contact Us</h1>
+        <h1 class="display-4 text-white  slideInDown mb-4 fade-in">Contact Us</h1>
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
@@ -19,42 +19,42 @@
 </div>
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5"  style="max-width: 600px; visibility: visible; ">
+        <div class="text-center mx-auto mb-5 fade-in"  style="max-width: 600px; visibility: visible; ">
             <h4 class="section-title"style="color:#d8ac73;">Contact Us</h4>
-            <h1 class="display-5 mb-4" style="color:#a6b7aa;">If You Have Any Query, Please Feel Free to Contact Us</h1>
+            <h1 class="display-5 mb-4" style="color:#a6b7aa;">If You Have Any Concern, Please Feel Free to Contact Us</h1>
         </div>
         <div class="row g-5">
-            <div class="col-lg-6"  style="visibility: visible; ">
-                <div class="d-flex flex-column justify-content-between h-100">
-                    <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center " style="width: 55px; height: 55px;">
-                       <font-awesome-icon :icon="['fas', 'location-dot']"class="fa-2x" />
-                        </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Address</p>
-                            <h3 class="mb-0">123 Street, Yangon , Myanmar</h3>
-                        </div>
-                    </div>
-                    <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center " style="width: 55px; height: 55px;">
-                            <font-awesome-icon :icon="['fas', 'phone']"class="fa-2x" />
-                        </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Call Us Now</p>
-                            <h3 class="mb-0">+012 345 6789</h3>
-                        </div>
-                    </div>
-                    <div class="bg-light d-flex align-items-center w-100 p-4">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center " style="width: 55px; height: 55px;">
-                            <font-awesome-icon :icon="['fas', 'envelope']" class="fa-2x"/>
-                        </div>
-                        <div class="ms-4">
-                            <p class="mb-2">Mail Us Now</p>
-                            <h3 class="mb-0">info@example.com</h3>
-                        </div>
-                    </div>
-                </div>
+           <div class="col-lg-6" style="visibility: visible;">
+    <div class="d-flex flex-column justify-content-between h-100">
+        <div class="bg-light d-flex align-items-center w-100 p-4 mb-4 zoom-hover">
+            <div class="d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                <font-awesome-icon :icon="['fas', 'location-dot']" class="fa-2x" />
             </div>
+            <div class="ms-4">
+                <p class="mb-2">Address</p>
+                <h3 class="mb-0">123 Street, Yangon, Myanmar</h3>
+            </div>
+        </div>
+        <div class="bg-light d-flex align-items-center w-100 p-4 mb-4 zoom-hover">
+            <div class="d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                <font-awesome-icon :icon="['fas', 'phone']" class="fa-2x" />
+            </div>
+            <div class="ms-4">
+                <p class="mb-2">Call Us Now</p>
+                <h3 class="mb-0">+012 345 6789</h3>
+            </div>
+        </div>
+        <div class="bg-light d-flex align-items-center w-100 p-4 zoom-hover">
+            <div class="d-flex flex-shrink-0 align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                <font-awesome-icon :icon="['fas', 'envelope']" class="fa-2x" />
+            </div>
+            <div class="ms-4">
+                <p class="mb-2">Mail Us Now</p>
+                <h3 class="mb-0">info@example.com</h3>
+            </div>
+        </div>
+    </div>
+</div>
             <div class="col-lg-6"  style="visibility: visible; ">
                 <iframe class="w-100 h-100" style="min-height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483454.22201293496!2d95.8519097!3d16.8388795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1949e223e196b%3A0x56fbd271f8080bb4!2sYangon!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
@@ -71,13 +71,32 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 export default {
-    components: {
-        FontAwesomeIcon,
-    },
-    
-};
-library.add(fas); 
+  components: {
+    FontAwesomeIcon,
+  },
+  mounted() {
+    library.add(fas);
+    this.initializeIntersectionObserver();
+  },
+  methods: {
+    initializeIntersectionObserver() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
 
+      document.querySelectorAll('.fade-in,.fade-in-1,.fade-in-2,.fade-in-3,.fade-in-4,.fade-in-5,.fade-in-text').forEach(element => {
+        observer.observe(element);
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -85,6 +104,27 @@ library.add(fas);
 body, .page-header, h1, h2, h3, h6, p, a, div {
     font-family:  'Quicksand', sans-serif;
 }
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(80px); 
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+.zoom-hover {
+    transition: transform 0.3s ease;
+}
+
+.zoom-hover:hover {
+    transform: scale(1.05);
+}
+
 .page-header {
     background: url('../image/header.jpg') no-repeat center center;
     background-size: cover;

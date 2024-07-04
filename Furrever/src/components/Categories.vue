@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+    <div class="container-fluid page-header py-5 mb-5 " >
       <div class="container text-center py-5">
-        <h1 class="display-4 text-white slideInDown mb-4">Services</h1>
+        <h1 class="display-4 text-white slideInDown mb-4 fade-in">Services</h1>
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <section class="services d-flex align-items-center py-5" id="services">
-      <div class="container text-light">
+      <div class="container text-light fade-in">
         <div class="text-center text-black">
           <p style="color:#d8ac73">OUR SERVICES</p>
           <h2 class="py-2">Explore unlimited possibilities</h2>
@@ -45,7 +45,6 @@
           <Reviews></Reviews>
       </div>
 </template>
-
 <script>
 import axios from 'axios';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -56,16 +55,30 @@ import Reviews from './Reviews.vue';
 export default {
   components: {
     FontAwesomeIcon,
-     Reviews,
+    Reviews,
   },
   data() {
     return {
       categories: [],
     };
   },
-  mounted() {
+  async mounted() {
     library.add(fas);
     this.fetchCategories();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.fade-in,.fade-in-1,.fade-in-2,.fade-in-3,.fade-in-4,.fade-in-5,.fade-in-text').forEach(element => {
+      observer.observe(element);
+    });
   },
   methods: {
     async fetchCategories() {
@@ -80,12 +93,34 @@ export default {
 };
 </script>
 
-
 <style scoped>
 * {
 
   font-family: 'Quicksand', sans-serif;
 }
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(80px); 
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+
+
+
+
+
+
+
+
+
 
 h1,
 h2,

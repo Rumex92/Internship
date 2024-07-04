@@ -30,7 +30,7 @@ export default {
       user: {
         name: '',
         email: '',
-        profile_picture: '' // Ensure this matches your API response structure
+        profile_picture: '' 
       }
     };
   },
@@ -54,7 +54,7 @@ export default {
       }
     },
     imageUrl(filename) {
-      // Assuming the public disk is configured to point to `public/images/profile_pictures`
+     
       return `http://localhost:8000/images/profile_pictures/${filename}`;
     },
     editProfile() {

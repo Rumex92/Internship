@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-6">
                 <button class="btn cancel btn-sm" @click="cancelComment" style="margin-right: 5px;">Clear</button>
-                <button class="btn  send btn-sm" @click="sendComment" style="margin-left: 5px; ">Send </button>
+                <button class="btn cancel btn-sm" @click="sendComment" style="margin-left: 5px;">Send</button>
               </div>
             </div>
           </div>
@@ -33,13 +33,17 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>
 
     <div class="reviews-section mt-4">
       <h4>What our clients say</h4>
       <div v-for="review in paginatedReviews" :key="review.id" class="review">
-        <p><strong>{{ review.user.name }}</strong> <span class="star-rating" v-html="getStars(review.rating)"></span></p>
-        <p>{{ review.review }}</p>
+        <div class="review-header">
+          <img v-if="review.user.profile_picture" :src="imageUrl(review.user.profile_picture)" height="50" width="50" style="border-radius: 50%;" />
+          <img v-else src="@/image/userHolder.jpg" height="50" width="50" style="border-radius: 50%;" />
+          <p><strong>{{ review.user.name }}</strong> <span class="star-rating" v-html="getStars(review.rating)"></span></p>
+        </div>
+        <p class="review-comment">{{ review.review }}</p>
       </div>
 
       <div class="pagination mt-3">
@@ -74,8 +78,7 @@ export default {
   computed: {
     paginatedReviews() {
       const start = (this.currentPage - 1) * this.perPage;
-      const end = this.currentPage * this.perPage;
-      return this.reviews.slice(start, end);
+      return this.reviews.slice(start, start + this.perPage);
     },
     totalPages() {
       return Math.ceil(this.reviews.length / this.perPage);
@@ -166,11 +169,13 @@ export default {
     },
     getStars(rating) {
       return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+    },
+    imageUrl(profilePicture) {
+      return `http://localhost:8000/images/profile_pictures/${profilePicture}`;
     }
   }
 };
 </script>
-
 
 
   
@@ -202,7 +207,9 @@ body {
   border-radius: 6px;
 
 }
-
+.review-comment{
+  margin-left:60px;
+}
 .comment-box {
   padding: 5px;
 }
@@ -219,7 +226,20 @@ body {
   outline: 0;
 
 }
-
+.review-header {
+  display: flex;
+  align-items: center;
+}
+.review-header img {
+  margin-right: 10px;
+}
+.review-user-info {
+  display: flex;
+  flex-direction: column;
+}
+.review {
+  margin-bottom: 15px;
+}
 .send {
   background-color: #fff;
   border-color: #a6b7aa;

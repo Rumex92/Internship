@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+    <div class="container-fluid page-header py-5 mb-5">
       <div class="container text-center py-5">
         <h1 class="display-4 text-white slideInDown mb-4">Services</h1>
         <nav aria-label="breadcrumb animated slideInDown">
@@ -47,54 +47,72 @@
       </div>
     </div>
 
-   <div class="container-xl py-6">
-    <div class="container">
-      <div class="row gy-4 justify-content-center" data-aos="zoom-in">
-        <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
-          <div class="card bg-custom px-4 custom-card-spacing shadow-sm h-100">
-            <div class="card-body d-flex flex-column">
-              <div class="mb-auto">
-                <h4 class="card-title py-2">{{ service.service_name }}</h4>
-                <ul class="py-3 list-unstyled">
-                  <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3">
-                    <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
-                  </li>
-                </ul>
-              </div>
-              <div class="text-end">
-                <h4 class="py-3">${{ service.price }}</h4>
-              </div>
+    <div class="container-xl py-6" >
+  <div class="container">
+    <div class="row gy-5 justify-content-center" >
+      <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
+        <div class="card bg-custom px-4 custom-card-spacing shadow-sm h-100">
+          <div class="card-body d-flex flex-column" >
+            <div class="mb-auto">
+              <h3 class="card-title py-2">{{ service.service_name }}</h3>
+              <ul class="py-3 list-unstyled">
+                <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3 ">
+                  <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
+                </li>
+              </ul>
+            </div>
+            <div class="text-end">
+              <h4 class="py-3">${{ service.price }}</h4>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
+</div>
+</div>
+
 </template>
+
 
 <script>
 import axios from 'axios';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faPaw);
+library.add(fas);
 
 export default {
-  props: ['categoryId'],
   components: {
     FontAwesomeIcon,
   },
+  props: ['categoryId'],
   data() {
     return {
       services: [],
     };
   },
-  watch: {
-    categoryId: 'fetchServices'
+  created() {
+    // Initialize FontAwesome icons library
+    library.add(fas);
   },
-  mounted() {
+mounted() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.fade-in').forEach(element => {
+    observer.observe(element);
+  });
+ 
     this.fetchServices();
   },
   methods: {
@@ -116,19 +134,29 @@ export default {
 };
 </script>
 
+
 <style scoped>
 * {
 
   font-family: 'Quicksand', sans-serif;
 }
 
-.custom-card {
-   margin: 0 15px; /* Add horizontal margin for spacing */
-  width: calc(50% - 30px);  /* Adjust width to fit two cards with margin */
-}
 
+
+
+.custom-card {
+    margin: 0 10px 20px;
+  width: calc(33.333% - 20px);
+  transition: transform 0.3s ease-in-out;
+  margin-bottom:20px;
+  color:#fff;
+}
+.custom-card:hover {
+  transform: scale(1.05);
+}
 .bg-custom {
-    background-color: #a6b7aa; /* Set custom background color */
+    background-color: #a6b7aa; 
+   
 }
 .page-header {
     background: url('../image/header.jpg') no-repeat center center;
