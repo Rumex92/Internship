@@ -2,7 +2,6 @@
   <div class="container my-5">
     <div class="card p-4 shadow-lg">
       <div class="card-body">
-      
         <h4 class="card-title text-center mb-4" style="color:#A1AF95;">Change Password</h4>
         <form @submit.prevent="changePassword">
           <div class="form-group">
@@ -26,6 +25,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import axios from 'axios';
 

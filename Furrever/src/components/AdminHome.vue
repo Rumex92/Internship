@@ -14,11 +14,9 @@
 
     <div id="main">
       <button @click="addService" style="margin-bottom: 10px;" class="btn btn-success">Add New Service</button>
-
       <table class="crud-table">
         <thead>
           <tr>
-           
             <th>Service Name</th>
             <th>Description</th>
             <th>Category</th>
@@ -28,7 +26,6 @@
         </thead>
         <tbody>
           <tr v-for="service in paginatedServices" :key="service.id">
-         
             <td>{{ service.service_name }}</td>
             <td>{{ service.description }}</td>
             <td>{{ getCategoryName(service.category_id) }}</td>
@@ -66,10 +63,8 @@
               {{ category.category_name }}
             </option>
           </select>
-
           <label for="price">Price:</label>
           <input type="number" v-model="form.price" required>
-
           <button type="submit">{{ isEdit ? 'Update' : 'Create' }}</button>
         </form>
       </div>
@@ -80,7 +75,7 @@
 <script>
 import { useServiceStore } from '../store/services';
 import { useAdminAuthStore } from '../store/adminAuth';
-import { useCategoryStore } from '../store/categories'; // Import useCategoryStore
+import { useCategoryStore } from '../store/categories'; 
 import axios from 'axios';
 
 export default {
@@ -116,13 +111,13 @@ export default {
       return useServiceStore().totalPages;
     },
     categories() {
-      return useCategoryStore().categories; // Retrieve categories from Vuex store
+      return useCategoryStore().categories; 
     }
   },
 
   created() {
     useServiceStore().fetchServices();
-    useCategoryStore().fetchCategories(); // Fetch categories when the component is created
+    useCategoryStore().fetchCategories(); 
   },
   
   methods: {
@@ -208,8 +203,6 @@ export default {
   }
 };
 </script>
-
-
 
 
 <style scoped>
@@ -351,17 +344,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 
 .pagination-button {
-  background-color: #6c757d; /* Gray background color */
+  background-color: #6c757d;
   color: white;
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
-  border-radius: 5px; /* Adjust the radius as needed for rounder corners */
+  border-radius: 5px; 
   transition: background-color 0.3s;
 }
 
@@ -371,7 +364,7 @@ export default {
 }
 
 .pagination-button:not(:disabled):hover {
-  background-color: #5a6268; /* Slightly darker gray for hover state */
+  background-color: #5a6268; 
 }
 
 .pagination-info {

@@ -33,7 +33,7 @@
           <td>{{ booking.note }}</td>
           <td>
             <button class="btn btn-success" style="margin-right: 10px;" @click="markAsCompleted(booking.id)" :disabled="booking.completed">
-              {{ booking.completed ? 'Completed' : 'Mark as Completed' }}
+              {{ booking.completed ? 'Approved' : 'Mark as Approved' }}
             </button>
             <button class="btn btn-danger" @click="deleteBooking(booking.id)">
               Delete
@@ -117,7 +117,7 @@ export default {
     },
     async mapServiceNames(bookings) {
       // Fetch service details for each booking and map service_name to booking object
-      const servicesResponse = await axios.get('http://localhost:8000/api/services'); // Assuming this endpoint returns all services
+      const servicesResponse = await axios.get('http://localhost:8000/api/services');
 
       const servicesMap = servicesResponse.data.reduce((map, service) => {
         map[service.id] = service.service_name;
@@ -185,11 +185,11 @@ export default {
   padding: 20px;
 }
 .table {
-  width: calc(100% - 40px); /* Adjust the width to leave space for margins */
+  width: calc(100% - 40px); 
   border-collapse: collapse;
-  margin: 0 auto; /* Center the table horizontally */
-  margin-left: 20px; /* Left margin */
-  margin-right: 20px; /* Right margin */
+  margin: 0 auto; 
+  margin-left: 20px; 
+  margin-right: 20px; 
 }
 
 .table th, .table td {
@@ -238,17 +238,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 
 .pagination-button {
-  background-color: #6c757d; /* Gray background color */
+  background-color: #6c757d; 
   color: white;
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
-  border-radius: 5px; /* Adjust the radius as needed for rounder corners */
+  border-radius: 5px; 
   transition: background-color 0.3s;
 }
 
@@ -258,7 +258,7 @@ export default {
 }
 
 .pagination-button:not(:disabled):hover {
-  background-color: #5a6268; /* Slightly darker gray for hover state */
+  background-color: #5a6268; 
 }
 
 .pagination-info {

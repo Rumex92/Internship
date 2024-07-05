@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid page-header py-5 mb-5">
       <div class="container text-center py-5">
-        <h1 class="display-4 text-white slideInDown mb-4">Services</h1>
+        <h1 class="display-4 text-white slideInDown mb-4 fade-in">Services</h1>
         <nav aria-label="breadcrumb animated slideInDown">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
@@ -19,16 +19,16 @@
       </div>
     </div>
 
-    <div class="container-xxl py-6">
+    <div class="container-xxl py-6 fade-in">
       <div class="container">
         <div class="row g-5">
           <div class="col-lg-6">
             <div class="h-100">
-              <h2 class="display-8 mb-4">Our Services</h2>
+              <h2 class="display-8 mb-4"style="color:#a6b7aa;">Our Services</h2>
               <p>At Furrever, we offer a range of high-quality services to meet the needs of your beloved pets. Our experienced and compassionate team is dedicated to providing the best care possible, ensuring your pets are happy, healthy, and well-cared for.</p>
-                 <h2 class="display-8 mb-4">Payment Information</h2>
+                 <h2 class="display-8 mb-4"style="color:#a6b7aa;">Payment Information</h2>
               <p>We currently accept payments in person only. Please note that we do not offer online payment options at this time. We accept cash, credit, and debit cards at our facility. We appreciate your understanding and cooperation as we work to provide the best service for you and your pets.</p>
-              <router-link to="/book-service"  class="btn btn-primary py-3 px-5 " style="border-radius: 10px; background-color:#a6b7aa;color:#fff;">Make a Reservation</router-link>
+              <router-link to="/book-service"  class="btn btn-primary py-3 px-5 " style="border-radius: 10px; background-color:#a6b7aa;color:#fff;">Make a Booking</router-link>
               </div>
           </div>
 
@@ -36,10 +36,10 @@
             <div class="row img-twice position-relative h-100">
               <div class="color-layer-between"></div>
               <div class="col-6">
-                <img class="img-fluid rounded zoom-on-hover" src="../image/catside.jpg" alt="">
+                <img class="img-fluid rounded zoom-on-hover" src="../image/4.jpg" alt="">
               </div>
               <div class="col-6 align-self-end custom-position">
-                <img class="img-fluid rounded zoom-on-hover" src="../image/brownbunny.jpg" alt="">
+                <img class="img-fluid rounded zoom-on-hover" src="../image/2.jpg" alt="">
               </div>
             </div>
           </div>
@@ -47,11 +47,11 @@
       </div>
     </div>
 
-    <div class="container-xl py-6" >
-  <div class="container">
+  <div class="container-xl py-6" >
+   <div class="container">
     <div class="row gy-5 justify-content-center" >
       <div v-for="service in services" :key="service.id" class="col-lg-3 custom-card">
-        <div class="card bg-custom px-4 custom-card-spacing shadow-sm h-100">
+        <div class="card bg-custom px-4 custom-card-spacing shadow-sm h-100 ">
           <div class="card-body d-flex flex-column" >
             <div class="mb-auto">
               <h3 class="card-title py-2">{{ service.service_name }}</h3>
@@ -62,7 +62,7 @@
               </ul>
             </div>
             <div class="text-end">
-              <h4 class="py-3">${{ service.price }}</h4>
+              <h4 class="py-3" >${{ service.price }}</h4>
             </div>
           </div>
         </div>
@@ -141,11 +141,8 @@ mounted() {
   font-family: 'Quicksand', sans-serif;
 }
 
-
-
-
 .custom-card {
-    margin: 0 10px 20px;
+  margin: 0 10px 20px;
   width: calc(33.333% - 20px);
   transition: transform 0.3s ease-in-out;
   margin-bottom:20px;
@@ -156,6 +153,7 @@ mounted() {
 }
 .bg-custom {
     background-color: #a6b7aa; 
+    color:#58605A;
    
 }
 .page-header {
@@ -175,7 +173,16 @@ mounted() {
     background-color: rgba(0, 0, 0, 0.3); 
     z-index: -1;
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(60px); 
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
 
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
 
 .btn-primary {
   background-color: #a6b7aa;
@@ -237,7 +244,6 @@ mounted() {
     right: 10px; 
     margin-bottom:40px;
 }
-
 
 .custom-position img {
     margin-top: 40px; 

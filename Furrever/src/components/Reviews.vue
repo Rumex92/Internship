@@ -12,7 +12,7 @@
             <input type="radio" name="rating" value="1" id="1" v-model="reviewData.rating"><label for="1">☆</label>
           </div>
           <div class="comment-area">
-            <textarea class="form-control" placeholder="What is your view?" rows="4" v-model="reviewData.review"></textarea>
+            <textarea class="form-control" placeholder="What is your view?" rows="4" v-model="reviewData.review" style="color:black;"></textarea>
           </div>
           <div class="comment-btns mt-2">
             <div class="row">
@@ -139,21 +139,26 @@ export default {
         }
       };
 
-      try {
-        const response = await axios.post('http://localhost:8000/api/reviews', reviewPayload, config);
-        console.log('Review submitted successfully:', response.data);
-        this.showSuccessMessage = true;
-        this.fetchReviews(); // Fetch updated reviews after successful submission
-        this.cancelComment(); // Reset the form fields
-      } catch (error) {
-        console.error('Error submitting review:', error);
-        // Handle error (show error message, etc.)
-      }
-    },
+     try {
+      const response = await axios.post('http://localhost:8000/api/reviews', reviewPayload, config);
+      console.log('Review submitted successfully:', response.data);
+      this.showSuccessMessage = true;
+      this.fetchReviews(); // Fetch updated reviews after successful submission
+      this.cancelComment(); // Reset the form fields
+      
+      // Automatically hide success message after 30 seconds
+      setTimeout(() => {
+        this.showSuccessMessage = false;
+      }, 30000); // 30 seconds in milliseconds
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      // Handle error (show error message, etc.)
+    }
+  },
     cancelComment() {
       this.reviewData.review = '';
       this.reviewData.rating = null;
-      this.showSuccessMessage = false;
+     
       this.showBothError = false;
       this.authError = false;
     },

@@ -7,60 +7,45 @@
     
    <div class="p-lg-5 pe-lg-0">
         <div class="section-title text-start fade-in-text">
+         <h1 class="display-3 mb-1" style="font-family: 'Courgette', cursive; margin-top:40px;">Furrver</h1>
             <h3 class="display-3 mb-4"style="padding-top:60px;">Your Pet’s Favorite Place to Play and Stay</h3>
-            <h1 class="display-3 mb-4">Welcome to Furrever</h1>
          </div>
-            <p class="mb-2 pb-1 h5">Discover the ultimate pet daycare experience at Furrever. </p>
-                <p class="mb-4 pb-1 h5">At Furrever, we provide a safe, loving, and fun environment for your furry friends.</p>
-          
+            <p class="mb-2 pb-1 h5 fade-in-text">Discover the ultimate pet daycare experience at Furrever. </p>
+                <p class="mb-4 pb-1 h5 fade-in-text">We provide a safe, and fun environment for your furry friends.</p>
                 <div class="row g-4 mb-4 pb-2">
                  </div>
-             <router-link to="/about" class="btn btn-primary py-3 px-5" style="border-radius: 10px;">Explore More</router-link>
+             <router-link to="/booking" class="btn btn-primary py-3 px-5"  style="border-radius: 10px; color:#fff;">How to Book</router-link>
         </div>
   </div>
 </div>
-
-<div class="about-container">
+  
+  <div class="about-container">
     <div class="container-fluid featurs py-3">
         <div class="container py-5 offers">
-        <h1 class="title">Services We Offer</h1>
-            <div class="row g-5 justify-content-center">
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="featurs-item text-center rounded p-4">
-                        <div class="icon-container mb-4 mx-auto">
-                            <img src="../image/grooming.jpg" class="icon-image" alt="Grooming Image">
-                        </div>
-                        <div class="featurs-content text-center">
-                            <h5 style="color:#fff;">Grooming</h5>
-                            <p class="mb-0" style="color:#fff;">Keep Your Pet Looking and Feeling Great</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 fade-in-1">
-                    <div class="featurs-item text-center rounded p-4">
-                        <div class="icon-container mb-5 mx-auto">
-                            <img src="../image/sleeping.jpg" class="icon-image" alt="Boarding Image">
-                        </div>
-                        <div class="featurs-content text-center">
-                            <h5 style="color:#fff;">Boarding</h5>
-                            <p class="mb-0" style="color:#fff;">Comfortable and Secure Overnight Stays</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3 fade-in-2">
-                    <div class="featurs-item text-center rounded p-4">
-                        <div class="icon-container mb-5 mx-auto">
-                            <img src="../image/running.jpg" class="icon-image" alt="Day Care Image">
-                        </div>
-                        <div class="featurs-content text-center">
-                            <h5 style="color:#fff;">Day Care</h5>
-                            <p class="mb-0" style="color:#fff;">Fun and Engaging Daytime Activities</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h1 class="title" style="color:#fff;">Services We Offer</h1>
+             <div class="service-container">
+        <figure class="snip1584 fade-in">
+            <img src="../image/grooming.jpg" />
+            <figcaption>
+                <h5>Grooming</h5>
+            </figcaption>
+            <a href="#"></a>
+        </figure>
+        <figure class="snip1584 fade-in-1">
+            <img src="../image/sleeping.jpg" />
+            <figcaption>
+                <h5>Boarding</h5>
+            </figcaption>
+            <a href="#"></a>
+        </figure>
+        <figure class="snip1584 fade-in-2">
+            <img src="../image/running.jpg"/>
+            <figcaption>
+                <h5>DayCare</h5>
+            </figcaption>
+            <a href="#"></a>
+        </figure>
+    </div>
         </div>
     </div>
 </div>
@@ -78,7 +63,7 @@
         
                
                 <div class="col-6">
-                 <img class="img-fluid rounded zoom-on-hover fade-in-3" src="../image/Doggos.jpg" alt="">
+                 <img class="img-fluid rounded zoom-on-hover fade-in-3" src="../image/dog3.jpg" alt="">
                 </div>
            </div>
         </div>
@@ -95,7 +80,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <div class="reasons">
+            <div class="reasons2">
                 <div class="fade-in-5">
                     <h2>Why Choose Us?</h2>
                     <p>"Choose Furrever because we understand pets like no one else. Our commitment to quality care, safety, and happiness is unmatched. Let your pets experience the difference with Furrever."</p>
@@ -103,10 +88,10 @@
             </div>
         </div>
         <div class="carousel-item">
-            <div class="reasons">
+            <div class="reasons3">
                 <div class="fade-in-5">
                     <h2>What Makes Us Different</h2>
-                    <p>"What sets Furrever apart? It's our passion for pets, our dedicated team, and our commitment to excellence in pet care. Discover why Furrever is the perfect choice for your pets' needs."</p>
+                    <p>"What sets Furrever apart? It's our passion for pets, our dedicated team, and our commitment to excellence in pet care."</p>
                 </div>
             </div>
         </div>
@@ -120,8 +105,6 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-
-
 
   <div class="container-fluid overflow-hidden my-5 px-lg-0" >
     <div class="container feature px-lg-0">
@@ -188,8 +171,6 @@
         </div>
     </div>
 </div>
-
-
 </template>
 
 
@@ -206,6 +187,7 @@ export default {
    
   },
   mounted() {
+    this.initializeHoverEffect();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -224,6 +206,24 @@ export default {
   created() {
     library.add(fas);
   },
+   methods: {
+
+    initializeHoverEffect() {
+      const snippets = [].slice.call(document.querySelectorAll('.hover'));
+      if (snippets.length) {
+        snippets.forEach(snippet => {
+          snippet.addEventListener('mouseout', this.handleHoverOut);
+        });
+      }
+    },
+    handleHoverOut(event) {
+      if (event.target.parentNode.tagName === 'figure') {
+        event.target.parentNode.classList.remove('hover');
+      } else {
+        event.target.parentNode.classList.remove('hover');
+      }
+    },
+  },
 };
 </script>
 
@@ -238,6 +238,136 @@ export default {
 *,*::before,*::after {
     box-sizing: border-box
 }
+
+.services-section {
+    text-align: center;
+    height:350px;
+    margin-top:80px;
+    margin-bottom:40px;
+    background-color:#f5edd6;
+   
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    
+}
+
+.service-container h3 {
+    margin-bottom: 20px; 
+}
+
+.snip1584 {
+  font-family:'Quicksand', sans-serif;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+}
+.snip1584 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1584:before {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  top: 100%;
+  content: '';
+  background-color: rgba(51, 51, 51, 0.9);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+.snip1584 img {
+  vertical-align: top;
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+.snip1584 figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.snip1584 h3,
+.snip1584 h5 {
+  margin: 0;
+  opacity: 0;
+  letter-spacing: 1px;
+}
+.snip1584 h3 {
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+  margin-bottom: 5px;
+}
+.snip1584 h5 {
+  font-weight: normal;
+
+  padding: 3px 10px;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.snip1584 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.snip1584:hover:before,
+.snip1584.hover:before {
+  top: 10px;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.snip1584:hover h3,
+.snip1584.hover h3,
+.snip1584:hover h5,
+.snip1584.hover h5 {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+.snip1584:hover h3,
+.snip1584.hover h3 {
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+.snip1584:hover h5,
+.snip1584.hover h5 {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+
 
 .fade-in {
   opacity: 0;
@@ -272,7 +402,7 @@ export default {
 }
 .fade-in-3 {
    opacity: 0;
-  transform: translateX(-100px); /* Start slightly to the left of their final position */
+  transform: translateX(-100px); 
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -294,24 +424,24 @@ transform: translateY(-50%);
 }
 .fade-in-5 {
   opacity: 0;
-  transform: scale(0.8); /* Initial scale for the zoom-in effect */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition for both opacity and transform */
+  transform: scale(0.8); 
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
 }
 
 .fade-in-5.visible {
   opacity: 1;
-  transform: scale(1); /* Final scale (original size) */
+  transform: scale(1); 
 }
 
 .fade-in-text {
   opacity: 0;
-  transform: translateX(100px); /* Start off 100px to the right */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+  transform: translateX(100px); 
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
 }
 
 .fade-in-text.visible {
   opacity: 1;
-  transform: translateX(0); /* Move to original position */
+  transform: translateX(0); 
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -391,31 +521,63 @@ transform: translateY(-50%);
     min-height: 300px; 
     background:#a6b7aa;
 }
+
 .reasons {
-       display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 300px;
-  
     text-align: center;
     padding: 20px;
     font-size: 1.2em;
-         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../image/twodogs.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../image/twodogs.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
 }
-.reasons h2 {
+.reasons h2,
+.reasons2 h2,
+.reasons3 h2 {
     font-size: 2em;
     margin-bottom: 20px;
      color: #d8ac73;
 
 }
-.reasons p {
+.reasons p,
+.reasons2 p,
+.reasons3 p {
     max-width: 800px; 
     margin: 0;
      color:  #a6b7aa;
+}
+.reasons2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../image/cats.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+.reasons3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../image/pets.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
 }
 
 
@@ -754,9 +916,5 @@ a:not([href]):not([class]),a:not([href]):not([class]):hover {
 .rounded {
     border-radius: 10px !important;
 }
-
-
-
-
 
 </style>

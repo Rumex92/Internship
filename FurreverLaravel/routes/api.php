@@ -78,9 +78,10 @@
  Route::middleware('auth:api')->group(function () {
      Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
  });
- 
  Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
+
+ //User Password and update profile
  Route::middleware('auth:api')->group(function () {
     Route::post('/change-password', [AuthController::class, 'changePassword'])->name('change-password');
     Route::post('/update-profile', [AuthController::class, 'updateProfile'])->name('update-profile');
@@ -103,19 +104,14 @@ Route::group(['prefix' => 'admin', 'middleware' =>  'auth:admin-api'], function 
     Route::get('users', [AuthController::class, 'getUsers'])->name('admin.users.index'); // List all users
     Route::get('users/{userId}', [AuthController::class, 'getUser'])->name('admin.users.show'); // View specific user by ID
 });
+Route::delete('/admin/account/{email}', [AdminAuthController::class, 'deleteAccount']);
 
 // User routes for bookings
 Route::middleware('auth:api')->group(function () {
     Route::get('/user/bookings', [BookingController::class, 'userBookings'])->name('user.bookings');
 });
 
-
-// Route for searching bookings
-Route::get('/admin/bookings/search', [AdminBookingController::class, 'search']);
-
-Route::delete('/admin/account/{email}', [AdminAuthController::class, 'deleteAccount']);
-
-
+//User Acc Delete
 Route::middleware('auth:api')->group(function () {
     Route::delete('/user/account', [AuthController::class, 'deleteAccount']);
 });

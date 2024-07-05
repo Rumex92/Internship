@@ -1,6 +1,6 @@
 <template>
   <div class="booking">
-    <h1>Here are your Booking Status!</h1>
+    <h1>Booking Details</h1>
     <div v-if="bookings.length === 0">
       <p>No bookings found.</p>
     </div>
@@ -70,7 +70,7 @@ export default {
         const bookingsWithServiceDetails = bookings.map(booking => ({
           ...booking,
           service_name: servicesMap[booking.service_id] || 'Unknown Service',
-          appointment_date: new Date(booking.appointment_date) // Assuming appointment_date is a string in ISO format
+          appointment_date: new Date(booking.appointment_date) 
         }));
 
         this.bookings = bookingsWithServiceDetails;
@@ -79,7 +79,7 @@ export default {
       }
     },
     formatAppointmentDate(date) {
-      return new Date(date).toLocaleDateString(); // Adjust formatting as needed
+      return new Date(date).toLocaleDateString(); 
     }
   }
 };

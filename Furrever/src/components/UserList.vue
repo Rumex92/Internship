@@ -5,7 +5,6 @@
       <router-link to="/admin/home">Services</router-link>
       <router-link to="/admin/categories">Service Categories</router-link>
       <router-link to="/admin/bookings">Bookings</router-link>
-      <router-link :to="{ name: 'AdminList' }">Admin List</router-link>
       <router-link :to="{ name: 'UserList' }">User List</router-link>
       <router-link :to="{ name: 'AdminAccount' }">Change Password</router-link>
       <a class="logoutbtn" @click="logout">Logout</a>
@@ -42,14 +41,14 @@
 
 <script>
 import axios from 'axios';
-import { useAdminAuthStore } from '@/store'; // Ensure this is correctly imported
+import { useAdminAuthStore } from '@/store'; 
 
 export default {
   data() {
     return {
       users: [],
       currentPage: 1,
-      itemsPerPage: 10 // Define itemsPerPage
+      itemsPerPage: 10 
     };
   },
   computed: {
@@ -134,11 +133,11 @@ export default {
   padding: 20px;
 }
 .table {
-  width: calc(100% - 40px); /* Adjust the width to leave space for margins */
+  width: calc(100% - 40px); 
   border-collapse: collapse;
-  margin: 0 auto; /* Center the table horizontally */
-  margin-left: 20px; /* Left margin */
-  margin-right: 20px; /* Right margin */
+  margin: 0 auto; 
+  margin-left: 20px; 
+  margin-right: 20px; 
 }
 
 .table th, .table td {
@@ -187,17 +186,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 
 .pagination-button {
-  background-color: #6c757d; /* Gray background color */
+  background-color: #6c757d; 
   color: white;
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
-  border-radius: 5px; /* Adjust the radius as needed for rounder corners */
+  border-radius: 5px; 
   transition: background-color 0.3s;
 }
 
@@ -207,7 +206,7 @@ export default {
 }
 
 .pagination-button:not(:disabled):hover {
-  background-color: #5a6268; /* Slightly darker gray for hover state */
+  background-color: #5a6268; 
 }
 
 .pagination-info {

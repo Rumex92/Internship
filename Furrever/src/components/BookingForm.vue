@@ -147,10 +147,6 @@ export default {
 </script>
 
 
-
-
-
-
 <style scoped>
 .alert {
   margin-top: 10px;

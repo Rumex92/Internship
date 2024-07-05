@@ -2,8 +2,8 @@
   <div>
     <div class="container-fluid page-header py-5 mb-5 " >
       <div class="container text-center py-5">
-        <h1 class="display-4 text-white slideInDown mb-4 fade-in">Services</h1>
-        <nav aria-label="breadcrumb animated slideInDown">
+        <h1 class="display-4 text-white  mb-4 fade-in">Services</h1>
+        <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
               <router-link class="text-white" style="text-decoration:none;"to="/">Home</router-link>
@@ -33,18 +33,17 @@
               <h4 class="py-2">{{ category.category_name }}</h4>
           </div>
          </router-link>
-
             </div>
           </div>
         </div> <!-- end of row -->
       </div> <!-- end of container -->
     </section>
   </div>
-
       <div class="review">
           <Reviews></Reviews>
       </div>
 </template>
+
 <script>
 import axios from 'axios';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -99,7 +98,6 @@ export default {
   font-family: 'Quicksand', sans-serif;
 }
 
-
 .fade-in {
   opacity: 0;
   transform: translateY(80px); 
@@ -110,17 +108,6 @@ export default {
   opacity: 1;
   transform: translateY(0); 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 h1,
 h2,
@@ -196,7 +183,7 @@ h4 {
 .review{
       width: 80%;
   min-height: 300px;
-  margin: 40px auto; /* Centering the card horizontally */
+  margin: 40px auto; 
   background: #f5edd6;
   display: flex;
   flex-direction: column;

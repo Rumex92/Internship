@@ -68,7 +68,7 @@ export default {
     },
     async updateProfile() {
       try {
-        const token = localStorage.getItem('token'); // or wherever you store the token
+        const token = localStorage.getItem('token'); 
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -85,7 +85,7 @@ export default {
         console.log('Profile update successful:', response.data);
         this.successMessage = 'Profile updated successfully!';
         this.errorMessage = '';
-        // Optionally, update local state or Vuex store with the new profile data
+        
       } catch (error) {
         console.error('Error updating profile:', error.response);
         this.errorMessage = error.response ? error.response.data.message : 'Failed to update profile.';
@@ -97,6 +97,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+
+  font-family: 'Quicksand', sans-serif;
+}
 .card {
   margin-bottom: 20px;
 }

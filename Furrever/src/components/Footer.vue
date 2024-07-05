@@ -1,24 +1,24 @@
 <template>
-    <div class="container-fluid  text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+    <div class="container-fluid  text-light footer mt-5 pt-5">
         <div class="container py-5">
             <div class="row g-5">
            <div class="col-lg-3 col-md-6">
               <div class="d-flex flex-column align-items-start justify-content-center h-100">
                    <h1 class="m-0 text-uppercase text-white">Furrever</h1>
-                   <p class="mt-3">Lorem diam sit erat dolor elitr et, diam lorem justo labore amet clita labore stet eos magna sit. Elitr dolor eirmod duo tempor lorem, elitr clita ipsum sea. Nonumy rebum et takimata ea takimata amet gubergren, erat rebum magna lorem stet eos. Diam amet et kasd eos duo dolore no.</p>
+                   <p class="mt-3">Our experienced and compassionate staff is trained to handle pets of all breeds and sizes with the utmost care and attention. We pride ourselves on creating a home away from home for your furry friends, ensuring they are comfortable, entertained, and well-cared for.</p>
              </div>
          </div>
 
                 <div class="col-lg-3 col-md-6">
                  <h4 class="text-light mb-4">Address</h4>
                  <p class="mb-2">
-                 <font-awesome-icon :icon="['fas', 'map-marker-alt']" class="me-3" />123 Street, New York, USA
+                 <font-awesome-icon :icon="['fas', 'map-marker-alt']" class="me-3" />123 Street, Yangon, Myanmar
                  </p>
                  <p class="mb-2">
-                 <font-awesome-icon :icon="['fas', 'phone-alt']" class="me-3" />+012 345 67890
+                 <font-awesome-icon :icon="['fas', 'phone-alt']" class="me-3" />09 123456
                  </p>
                  <p class="mb-2">
-                 <font-awesome-icon :icon="['fas', 'envelope']" class="me-3" />info@example.com
+                 <font-awesome-icon :icon="['fas', 'envelope']" class="me-3" />furrever@gmail.com
                  </p>
                 </div>
                 
@@ -189,6 +189,5 @@ export default {
 .quick-links li a:hover {
   color: #FF914D; 
 }
-
 
 </style>

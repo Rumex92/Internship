@@ -1,8 +1,8 @@
 <template>
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn"  style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+<div class="container-fluid page-header py-5 mb-5">
       <div class="container text-center py-5">
-        <h1 class="display-4 text-white  slideInDown mb-4 fade-in">Contact Us</h1>
-        <nav aria-label="breadcrumb animated slideInDown">
+        <h1 class="display-4 text-white mb-4 fade-in">Contact Us</h1>
+        <nav aria-label="breadcrumb ">
           <ol class="breadcrumb justify-content-center mb-0">
             <li class="breadcrumb-item">
               <a class="text-white" style="text-decoration:none;"href="#">Home</a>
@@ -41,7 +41,7 @@
             </div>
             <div class="ms-4">
                 <p class="mb-2">Call Us Now</p>
-                <h3 class="mb-0">+012 345 6789</h3>
+                <h3 class="mb-0">09 123456</h3>
             </div>
         </div>
         <div class="bg-light d-flex align-items-center w-100 p-4 zoom-hover">
@@ -50,7 +50,7 @@
             </div>
             <div class="ms-4">
                 <p class="mb-2">Mail Us Now</p>
-                <h3 class="mb-0">info@example.com</h3>
+                <h3 class="mb-0">furrever@gmail.com</h3>
             </div>
         </div>
     </div>
@@ -77,6 +77,7 @@ export default {
   mounted() {
     library.add(fas);
     this.initializeIntersectionObserver();
+    this.initializeHoverEffect();
   },
   methods: {
     initializeIntersectionObserver() {
@@ -91,9 +92,24 @@ export default {
         { threshold: 0.1 }
       );
 
-      document.querySelectorAll('.fade-in,.fade-in-1,.fade-in-2,.fade-in-3,.fade-in-4,.fade-in-5,.fade-in-text').forEach(element => {
+      document.querySelectorAll('.fade-in, .fade-in-1, .fade-in-2, .fade-in-3, .fade-in-4, .fade-in-5, .fade-in-text').forEach(element => {
         observer.observe(element);
       });
+    },
+    initializeHoverEffect() {
+      const snippets = [].slice.call(document.querySelectorAll('.hover'));
+      if (snippets.length) {
+        snippets.forEach(snippet => {
+          snippet.addEventListener('mouseout', this.handleHoverOut);
+        });
+      }
+    },
+    handleHoverOut(event) {
+      if (event.target.parentNode.tagName === 'figure') {
+        event.target.parentNode.classList.remove('hover');
+      } else {
+        event.target.parentNode.classList.remove('hover');
+      }
     },
   },
 };
@@ -104,7 +120,6 @@ export default {
 body, .page-header, h1, h2, h3, h6, p, a, div {
     font-family:  'Quicksand', sans-serif;
 }
-
 
 .fade-in {
   opacity: 0;

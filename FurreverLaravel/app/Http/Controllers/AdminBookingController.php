@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Booking;
 
@@ -32,6 +31,7 @@ class AdminBookingController extends Controller
 
         return response()->json(['message' => 'Booking deleted']);
     }
+    
  // Method to search bookings by keyword
  public function search(Request $request)
  {

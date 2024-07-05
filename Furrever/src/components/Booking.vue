@@ -1,8 +1,8 @@
 <template>
  <div class="container-fluid page-header py-5 mb-5">
     <div class="container text-center py-5">
-      <h1 class="display-4 text-white slideInDown mb-4 fade-in">Booking Process</h1>
-      <nav aria-label="breadcrumb animated slideInDown fade-in">
+      <h1 class="display-4 text-white mb-4 fade-in">Booking Process</h1>
+      <nav aria-label="breadcrumb animated fade-in">
         <ol class="breadcrumb justify-content-center mb-0">
           <li class="breadcrumb-item">
             <a class="text-white" style="text-decoration:none;" href="#">Home</a>
@@ -15,7 +15,7 @@
       </nav>
     </div>
   </div>
-<div class="parent-container">
+<div class="parent-container fade-in">
  <div class="container1">
         <h2>Ready to book?</h2>
         <div class="steps">
@@ -41,25 +41,24 @@
 <div class="book d-flex justify-content-center mt-4">
   <router-link to="/book-service" class="btn py-3 px-5 btn-hover" style="border-radius: 10px; background-color:#a6b7aa;color:#fff;">Book Now</router-link>
 </div>
-<div class="container-fluid overflow-hidden my-5 px-lg-0 fade-in-2">
+<div class="container-fluid overflow-hidden my-5 px-lg-0 fade-in">
   <div class="container feature px-lg-0">
     <div class="row g-0 mx-lg-0">
       <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
         <div class="position-relative h-100">
-          <img class="position-absolute img-fluid w-60 h-40" src="../image/cat.jpg" style="object-fit: cover;" alt="">
+          <img class="position-absolute img-fluid w-60 h-40" src="../image/dogs.jpg" style="object-fit: cover;" alt="">
         </div>
       </div>
-      <div class="col-lg-6 feature-text py-5">
+      <div class="col-lg-6 feature-text py-2">
         <div class="p-lg-5 ps-lg-0" style="margin-left:30px;">
           <div class="section-title text-start">
-            <h3 class="display-82 mb-2" style="color:#a6b7aa;">Payment Information</h3>
+            <h3 class="display-8 mb-2" style="color:#a6b7aa;">Payment Information</h3>
           </div>
           <p class="mb-4 pb-2">We currently accept payments in person only. Please note that we do not offer online payment options at this time. We accept cash, credit, and debit cards at our facility. We appreciate your understanding and cooperation as we work to provide the best service for you and your pets.</p>
            <div class="section-title text-start">
             <h3 class="display-8 mb-4" style="color:#a6b7aa;">Checking Booking Status</h3>
           </div>
           <p class="mb-4 pb-2">You can easily check the status of your bookings through your user profile on our website. Simply log in to access your profile, where you can view upcoming reservations. Our user-friendly interface ensures you stay informed about your pet's schedule with us.</p>
-          
         </div>
       </div>
     </div>
@@ -118,7 +117,16 @@ library.add(fas);
   font-family: 'Quicksand', sans-serif;
   
 }
+.fade-in {
+  opacity: 0;
+  transform: translateY(60px); 
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
 
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
 .page-header {
     background: url('../image/header.jpg') no-repeat center center;
     background-size: cover;

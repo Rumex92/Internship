@@ -100,6 +100,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+
+  font-family: 'Quicksand', sans-serif;
+}
 .card {
   width: 350px;
   background-color: #f0f0f0;

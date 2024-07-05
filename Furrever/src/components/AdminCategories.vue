@@ -263,14 +263,14 @@ export default {
   }
 
   .modal-content label {
-    display: block; /* Make labels display as block to stack them */
+    display: block; 
     margin-bottom: 8px;
   }
 
   .modal-content input,
   .modal-content textarea,
   .modal-content select {
-    width: calc(100% - 20px); /* Adjust width and include padding */
+    width: calc(100% - 20px); 
     padding: 8px;
     margin-bottom: 12px;
     box-sizing: border-box;
@@ -302,16 +302,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px; 
 }
 .pagination-button {
-  background-color: #6c757d; /* Gray background color */
+  background-color: #6c757d; 
   color: white;
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
-  border-radius: 5px; /* Adjust the radius as needed for rounder corners */
+  border-radius: 5px; 
   transition: background-color 0.3s;
 }
 
@@ -321,7 +321,7 @@ export default {
 }
 
 .pagination-button:not(:disabled):hover {
-  background-color: #5a6268; /* Slightly darker gray for hover state */
+  background-color: #5a6268; 
 }
 
 .pagination-info {
