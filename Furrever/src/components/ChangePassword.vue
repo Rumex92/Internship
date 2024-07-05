@@ -25,9 +25,9 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from 'axios';
+import { useAuthStore } from '@/store'; // Adjust the path based on your store location
 
 export default {
   data() {
@@ -41,10 +41,18 @@ export default {
   methods: {
     async changePassword() {
       try {
+        const authStore = useAuthStore(); // Assuming this returns your Vuex store
+        const config = {
+          headers: {
+            Authorization: `Bearer ${authStore.token}`
+          }
+        };
+
         const response = await axios.post('http://localhost:8000/api/change-password', {
           old_password: this.oldPassword,
           password: this.newPassword
-        });
+        }, config);
+
         console.log('Password change successful:', response.data);
         this.changePasswordSuccess = true;
         this.changePasswordError = '';

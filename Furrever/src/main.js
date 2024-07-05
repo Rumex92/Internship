@@ -8,7 +8,7 @@ import bootstrap from 'bootstrap/dist/js/bootstrap.bundle.js'
 import router from './router'
 import { createPinia } from 'pinia'
 
-import Header from './components/Header.vue';
+
 import Nav from './components/Nav.vue';
 import Home from './components/Home.vue';
 

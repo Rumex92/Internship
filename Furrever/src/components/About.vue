@@ -103,7 +103,7 @@
     </div>
 </div>
 
-  <div class="container-fluid overflow-hidden my-5 px-lg-0 fade-in-2">
+  <div class="container-fluid overflow-hidden my-5 px-lg-0 fade-in">
     <div class="container feature px-lg-0">
       <div class="row g-0 mx-lg-0">
         <div class="col-lg-6 feature-text py-5" >

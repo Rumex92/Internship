@@ -1,8 +1,8 @@
 <template>
-<div class="container-fluid p-0 pb-4" >
+<div class="container-fluid p-0 pb-4 custom-background" >
   <div class="wave-header">
     <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#ffffff" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,298.7C384,309,480,299,576,266.7C672,235,768,181,864,170.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      <path fill="#a6b7aa" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,298.7C384,309,480,299,576,266.7C672,235,768,181,864,170.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
     </svg>
     
    <div class="p-lg-5 pe-lg-0">
@@ -255,7 +255,9 @@ export default {
     gap: 20px; 
     
 }
-
+.custom-background {
+  background-color: #a6b7aa;
+}
 .service-container h3 {
     margin-bottom: 20px; 
 }
@@ -595,6 +597,7 @@ transform: translateY(-50%);
   position: relative;
   display: flex;
   color: white; 
+  background-color:#a6b7aa;
 
 }
 

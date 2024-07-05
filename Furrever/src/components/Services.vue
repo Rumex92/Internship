@@ -54,15 +54,15 @@
         <div class="card bg-custom px-4 custom-card-spacing shadow-sm h-100 ">
           <div class="card-body d-flex flex-column" >
             <div class="mb-auto">
-              <h3 class="card-title py-2">{{ service.service_name }}</h3>
+              <h3 class="card-title py-2"style="color:#fff;">{{ service.service_name }}</h3>
               <ul class="py-3 list-unstyled">
                 <li v-for="(sentence, index) in splitDescription(service.description)" :key="index" class="mb-3 ">
-                  <font-awesome-icon :icon="['fas', 'paw']" class="me-2" /> {{ sentence }}
+                  <font-awesome-icon :icon="['fas', 'paw']" class="me-2" style="color:#fff;"/> {{ sentence }}
                 </li>
               </ul>
             </div>
             <div class="text-end">
-              <h4 class="py-3" >${{ service.price }}</h4>
+              <h4 class="py-3" style="color:#fff;">${{ service.price }}</h4>
             </div>
           </div>
         </div>
